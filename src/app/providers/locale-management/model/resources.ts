@@ -1,10 +1,10 @@
 // import { SHARED_KEY, sharedEn } from 'shared/locale'
 
-import { ENTITIES_KEY, entitiesEn } from 'entities/locale'
+// import { ENTITIES_KEY, entitiesEn } from 'entities/locale'
 
 // import { FEATURES_KEY, featuresEn } from 'features/locale'
 
-import { PAGES_KEY, pagesEn } from 'pages/locale'
+// import { PAGES_KEY, pagesEn } from 'pages/locale'
 
 // import { APP_KEY, appEn } from 'app/locale'
 

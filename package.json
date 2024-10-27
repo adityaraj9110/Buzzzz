@@ -10,18 +10,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "prettier:fix": "prettier --write .",
-    "prepare": "husky install",
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "npm run prettier:fix",
-      "npm run lint:fix"
-    ]
+    "serve": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",

@@ -24,6 +24,7 @@ import {
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Outlet />}>
+
       <Route element={<HomeLayout />}>
         <Route path={appPaths.home} element={<HomePage />} />
       </Route>
@@ -50,6 +51,7 @@ const Router = createBrowserRouter(
       </Route>
 
       <Route path="*" element={<h1>Page not found</h1>} />
+      
     </Route>
   )
 )
