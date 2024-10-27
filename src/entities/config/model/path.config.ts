@@ -1,0 +1,40 @@
+export const appPaths = {
+  home: '/',
+  services: '/services',
+  cabServices: '/services/cab',
+  ticketBookingServices: '/services/ticket-booking',
+  groceriesDelivery: '/services/grocery-delivery',
+  helpAndSupport: '/help-and-support',
+  about: '/about',
+} as const
+
+export type AppPaths = typeof appPaths
+
+export type AppPathsName = keyof AppPaths
+
+// ------------------ External App Paths ----------------
+
+type ExternalPath = Record<
+  string,
+  {
+    baseUrl: string
+    route: Record<string, string>
+  }
+>
+
+export const marketingWebsiteBaseUrl = import.meta.env
+  .VITE_MARKETING_WEBSITE_URL
+
+export const extPaths = {
+  marketingWebsite: {
+    baseUrl: marketingWebsiteBaseUrl ?? '',
+    route: {
+      login: '/login',
+      pricing: '/pricing',
+    },
+  },
+} satisfies ExternalPath
+
+export type ExtAppPaths = typeof extPaths
+export type ExtAppNames = keyof ExtAppPaths
+export type ExtAppRoutes<T extends ExtAppNames> = keyof ExtAppPaths[T]['route']
