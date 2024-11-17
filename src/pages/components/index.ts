@@ -1,5 +1,6 @@
 import { lazy } from 'react'
 
+// TODO: Use this when you want to lazy load all the components
 export const HomePage = lazy(async () => {
   const { HomePage } = await import('./home/Home')
   return { default: HomePage }

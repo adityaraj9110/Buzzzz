@@ -1,11 +1,12 @@
 export const appPaths = {
-  home: '/',
+  '/': '/',
   services: '/services',
   cabServices: '/services/cab',
   ticketBookingServices: '/services/ticket-booking',
   groceriesDelivery: '/services/grocery-delivery',
-  helpAndSupport: '/help-and-support',
+  helpAndSupport: '/helpAndSupport',
   about: '/about',
+  bikeServices: '/services/bike',
 } as const
 
 export type AppPaths = typeof appPaths

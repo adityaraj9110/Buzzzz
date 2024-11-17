@@ -5,15 +5,13 @@ import {
   ServiceLayout,
 } from 'app/layout'
 import { appPaths } from 'entities/config'
-import {
-  AboutUsPage,
-  CabServicesPage,
-  GroceryDeliveryPage,
-  HelpSupportPage,
-  HomePage,
-  ServicesPage,
-  TicketBookingPage,
-} from 'pages/components'
+import { AboutUsPage } from 'pages/components/about-us/AboutUs'
+import { CabServicesPage } from 'pages/components/cab-services/CabServices'
+import { HelpSupportPage } from 'pages/components/help-support/HelpSupport'
+import { HomePage } from 'pages/components/home/Home'
+import { ServicesPage } from 'pages/components/services/Services'
+import { TicketBookingServicesPage } from 'pages/components/ticket-booking-services/TicketBookingServices'
+
 import {
   Outlet,
   Route,
@@ -24,9 +22,8 @@ import {
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Outlet />}>
-
       <Route element={<HomeLayout />}>
-        <Route path={appPaths.home} element={<HomePage />} />
+        <Route path={appPaths['/']} element={<HomePage />} />
       </Route>
 
       <Route element={<AboutUsLayout />}>
@@ -40,18 +37,17 @@ const Router = createBrowserRouter(
       <Route element={<ServiceLayout />}>
         <Route path={appPaths.services} element={<ServicesPage />} />
         <Route path={appPaths.cabServices} element={<CabServicesPage />} />
-        <Route
+        {/* <Route
           path={appPaths.groceriesDelivery}
-          element={<GroceryDeliveryPage />}
-        />
+          element={<GroceryDeliveryP />}
+        /> */}
         <Route
           path={appPaths.ticketBookingServices}
-          element={<TicketBookingPage />}
+          element={<TicketBookingServicesPage />}
         />
       </Route>
 
       <Route path="*" element={<h1>Page not found</h1>} />
-      
     </Route>
   )
 )

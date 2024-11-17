@@ -1,0 +1,53 @@
+import React from 'react'
+import { Button, Stack, Typography, useTheme } from '@mui/material'
+import AppleIcon from '@mui/icons-material/Apple'
+import ShopTwoIcon from '@mui/icons-material/ShopTwo'
+import { publicImages } from 'shared/config'
+import { ButtonStyled, WrapperStyled } from './styles.component'
+
+export const DownloadSection = () => {
+  return (
+    <WrapperStyled>
+      <Stack gap={'30px'} maxWidth={'527px'}>
+        <Stack gap={'5px'}>
+          <Typography variant="h5.700" color="neutral.white">
+            Download the{' '}
+            <Typography variant="h5.700" color="primary.main">
+              BuzzCabs{' '}
+            </Typography>
+            App
+          </Typography>
+        </Stack>
+
+        <div style={{ display: 'flex', gap: '30px' }}>
+          <ButtonStyled
+            variant="contained"
+            color="secondary"
+            startIcon={<AppleIcon fontSize="large" />}
+          >
+            <div>
+              <Typography variant="body1.400" component={'p'}>
+                Download at the{' '}
+              </Typography>
+              <Typography variant="h6.700">App Store</Typography>
+            </div>
+          </ButtonStyled>
+          <ButtonStyled
+            variant="contained"
+            color="secondary"
+            startIcon={<ShopTwoIcon />}
+          >
+            <div>
+              <Typography variant="body1.400" component={'p'}>
+                Download at the{' '}
+              </Typography>
+              <Typography variant="h6.700">Google Play</Typography>
+            </div>
+          </ButtonStyled>
+        </div>
+      </Stack>
+
+      <img src={publicImages.buzzcabMobileImg} alt="" />
+    </WrapperStyled>
+  )
+}

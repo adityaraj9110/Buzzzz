@@ -1,0 +1,17 @@
+export const publicImages = {
+  buzLogo: 'assets/logo/BuzLogo.svg',
+  heroSectionImage: 'assets/images/hero-section.svg',
+  '24HrsImage': 'assets/logo/24hrs.svg',
+  arrow: 'assets/logo/arrow.svg',
+  location: 'assets/logo/location.svg',
+  rupees: 'assets/logo/rupees.svg',
+  safety: 'assets/logo/safety.svg',
+  heroSectionBrand: 'assets/images/hero-section-brand.svg',
+  autoBooking: 'assets/images/autoBooking.svg',
+  bikeBooking: 'assets/images/bikeBooking.svg',
+  cabBooking: 'assets/images/cabBooking.svg',
+  bike: 'assets/logo/bike.svg',
+  clock: 'assets/logo/clock.svg',
+  buzzcabMobileImg: 'assets/images/buzzcabMobileImg.svg',
+  avatar: 'assets/logo/avatar.svg',
+}

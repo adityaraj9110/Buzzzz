@@ -1,5 +1,10 @@
 import React from 'react'
+import { Home } from 'features/components/'
 
 export const HomePage = () => {
-  return <div>THis is the Home Page</div>
+  return (
+    <>
+      <Home />
+    </>
+  )
 }

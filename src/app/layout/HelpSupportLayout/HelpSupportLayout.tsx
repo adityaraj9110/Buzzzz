@@ -1,11 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import { MainLayout } from '../MainLayout/MainLayout'
 
 export const HelpSupportLayout = () => {
   return (
-    <div>
+    <MainLayout>
       HelpSupportLayout
       <Outlet />
-    </div>
+    </MainLayout>
   )
 }
