@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick'
-import { styled, useTheme } from '@mui/material'
+import { Stack, styled, useTheme } from '@mui/material'
 import {
   Box,
   Card,
@@ -12,6 +12,7 @@ import {
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import { publicImages } from 'shared/config'
+import ReactStars from 'react-stars'
 
 const testimonials = [
   {
@@ -139,9 +140,6 @@ export const Carousel = () => {
     nextArrow: <Arrow direction="next" />,
     prevArrow: <Arrow direction="prev" />,
     beforeChange: (current: number, next: number) => {
-      // Update the active slide, keeping it in bounds for a circular carousel
-      console.log('beforeChange', current, next, next % testimonials.length)
-
       setActiveSlide((next + 1) % testimonials.length)
     },
   }
@@ -171,11 +169,11 @@ export const Carousel = () => {
                   maxHeight: '285px',
                   display: 'flex',
                   gap: '40px',
-                  background: isActive ? palette.action.hover : 'unset', // Set hover background for the center slide
+                  background: isActive ? palette.action.hover : 'unset',
                   transition: 'background 0.3s ease',
                   boxShadow: isActive
                     ? '0px 8px 16px rgba(0, 0, 0, 0.2)'
-                    : 'unset', // Add shadow effect for active card
+                    : 'unset',
                 }}
               >
                 <CardContent>
@@ -188,18 +186,20 @@ export const Carousel = () => {
                   >
                     <img src={publicImages.avatar} alt="Avatar" />
 
-                    <Typography variant="h6" fontWeight="bold">
-                      {item.name}
-                    </Typography>
+                    <Stack>
+                      <Typography variant="h6" fontWeight="bold">
+                        {item.name}
+                      </Typography>
+                      <ReactStars
+                        count={5}
+                        size={15}
+                        value={item.rating}
+                        color2={palette.primary.main}
+                        edit={false}
+                      />
+                    </Stack>
                   </div>
-                  {/* <Rating
-                      count={5}
-                      value={item.rating}
-                      size={20}
-                      activeColor="#ffd700"
-                      isHalf={true}
-                      edit={false}
-                    /> */}
+
                   <Typography variant="body2" sx={{ mt: 1 }}>
                     {item.text}
                   </Typography>

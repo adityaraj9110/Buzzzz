@@ -14,4 +14,6 @@ export const publicImages = {
   clock: 'assets/logo/clock.svg',
   buzzcabMobileImg: 'assets/images/buzzcabMobileImg.svg',
   avatar: 'assets/logo/avatar.svg',
+  referAndEarn: 'assets/images/referAndEarn.svg',
+  comingSoon: 'assets/images/comingSoon.svg',
 }
