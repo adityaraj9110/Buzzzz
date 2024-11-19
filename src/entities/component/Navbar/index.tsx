@@ -66,60 +66,56 @@ export const Navbar = () => {
           const isSelected = currentMenuItem.value === value
           const hasSubMenu = Boolean(subMenu)
           return (
-            <>
-              <NavLink
-                key={value}
-                to={appPaths[value]}
-                style={{ textDecoration: 'none' }}
+            <NavLink
+              key={value}
+              to={appPaths[value]}
+              style={{ textDecoration: 'none' }}
+            >
+              <Typography
+                variant="body1.700"
+                color={isSelected ? 'primary.main' : 'neutral.white'}
               >
-                <Typography
-                  variant="body1.700"
-                  color={isSelected ? 'primary.main' : 'neutral.white'}
-                >
-                  {label}
-                </Typography>
-                {logo && (
-                  <IconButton onClick={handleMenuOpen}>
-                    <ExpandMoreIcon
-                      sx={{
-                        color: 'neutral.white',
-                        ['&:hover']: { color: 'neutral.white !important' },
-                      }}
-                    />
-                  </IconButton>
-                )}
-                {hasSubMenu && (
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handleMenuClose}
-                    MenuListProps={{
-                      onMouseLeave: handleMenuClose,
+                {label}
+              </Typography>
+              {logo && (
+                <IconButton onClick={handleMenuOpen}>
+                  <ExpandMoreIcon
+                    sx={{
+                      color: 'neutral.white',
+                      ['&:hover']: { color: 'neutral.white !important' },
                     }}
-                  >
-                    {subMenu?.map((subItem) => (
-                      <MenuItem>
-                        <NavLink
-                          key={value}
-                          to={appPaths[subItem.value]}
-                          style={{ textDecoration: 'none' }}
+                  />
+                </IconButton>
+              )}
+              {hasSubMenu && (
+                <Menu
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={handleMenuClose}
+                  MenuListProps={{
+                    onMouseLeave: handleMenuClose,
+                  }}
+                >
+                  {subMenu?.map((subItem) => (
+                    <MenuItem key={subItem.value}>
+                      <NavLink
+                        key={value}
+                        to={appPaths[subItem.value]}
+                        style={{ textDecoration: 'none' }}
+                      >
+                        <Typography
+                          variant="body1.700"
+                          color={isSelected ? 'primary.main' : 'neutral.white'}
+                          component={'p'}
                         >
-                          <Typography
-                            variant="body1.700"
-                            color={
-                              isSelected ? 'primary.main' : 'neutral.white'
-                            }
-                            component={'p'}
-                          >
-                            {subItem.label}
-                          </Typography>
-                        </NavLink>
-                      </MenuItem>
-                    ))}
-                  </Menu>
-                )}
-              </NavLink>
-            </>
+                          {subItem.label}
+                        </Typography>
+                      </NavLink>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              )}
+            </NavLink>
           )
         })}
       </MenuItemsWrapperStyled>

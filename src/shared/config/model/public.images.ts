@@ -16,4 +16,8 @@ export const publicImages = {
   avatar: 'assets/logo/avatar.svg',
   referAndEarn: 'assets/images/referAndEarn.svg',
   comingSoon: 'assets/images/comingSoon.svg',
+  facebook: 'assets/logo/facebook.svg',
+  instagram: 'assets/logo/instagram.svg',
+  linkedin: 'assets/logo/linkedin.svg',
+  youtube: 'assets/logo/youtube.png',
 }

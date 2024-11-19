@@ -7,6 +7,11 @@ export const appPaths = {
   helpAndSupport: '/helpAndSupport',
   about: '/about',
   bikeServices: '/services/bike',
+  'contact-us': '/contact-us',
+  career: '/career',
+  download: '/download',
+  'privacy-policy': '/privacy-policy',
+  'terms-of-services': '/terms-of-services',
 } as const
 
 export type AppPaths = typeof appPaths

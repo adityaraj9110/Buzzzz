@@ -312,6 +312,7 @@ export const components: ThemeOptions['components'] = {
       disableRipple: true,
       startIcon: <CircularProgress id="loader" size={20} />,
     },
+
     styleOverrides: {
       outlined: ({ theme }) => ({
         color: theme.palette.neutral.white,
@@ -364,6 +365,7 @@ export const components: ThemeOptions['components'] = {
           backgroundColor: theme.palette.state.active,
         },
       }),
+
       root: ({ ownerState, theme }) => {
         return {
           ...(ownerState.color === 'muted' && {
@@ -466,7 +468,7 @@ export const components: ThemeOptions['components'] = {
   MuiInputBase: {
     styleOverrides: {
       sizeSmall: ({ theme }) => ({
-        height: '32px',
+        height: '42px',
         ...(theme.typography.caption1?.['400'] as CSSProperties),
         variants: [],
       }),
@@ -485,81 +487,81 @@ export const components: ThemeOptions['components'] = {
       }),
 
       // FIXME: Only for FILLED mode
-      root: ({ theme, ownerState }) => ({
-        height: '48px',
-        color: theme.palette.text.primary,
+      // root: ({ theme, ownerState }) => ({
+      // height: '48px',
+      // color: theme.palette.neutral.white,
 
-        backgroundColor:
-          ownerState.color !== 'primary'
-            ? (
-                theme.palette[
-                  ownerState.color || 'primary'
-                ] as CustomColorPartial
-              )[25]
-            : (theme.palette.secondary as CustomColorPartial)[25],
+      // backgroundColor:
+      //   ownerState.color !== 'primary'
+      //     ? (
+      //         theme.palette[
+      //           ownerState.color || 'primary'
+      //         ] as CustomColorPartial
+      //       )[25]
+      //     : (theme.palette.secondary as CustomColorPartial)[25],
 
-        borderColor: theme.palette[ownerState.color || 'primary'].main,
+      // borderColor: theme.palette[ownerState.color || 'secondary'].main,
 
-        [`&:hover`]: {
-          backgroundColor: theme.palette.state.hover,
-        },
+      // [`&:hover`]: {
+      //   backgroundColor: theme.palette.state.hover,
+      // },
 
-        [`& .${inputBaseClasses.input}::placeholder`]: {
-          color: theme.palette.text.secondary,
-        },
+      // [`& .${inputBaseClasses.input}::placeholder`]: {
+      //   color: theme.palette.text.secondary,
+      // },
 
-        [`&.${inputBaseClasses.disabled} .${inputBaseClasses.input}`]: {
-          cursor: 'not-allowed',
-        },
+      // [`&.${inputBaseClasses.disabled} .${inputBaseClasses.input}`]: {
+      //   cursor: 'not-allowed',
+      // },
 
-        [`&.${inputBaseClasses.focused} .${inputBaseClasses.input}`]: {
-          color: theme.palette.text.primary,
-        },
+      //   [`&.${inputBaseClasses.focused} .${inputBaseClasses.input}`]: {
+      //     color: theme.palette.neutral.white,
+      //   },
 
-        // outline
+      //   // outline
 
-        [`& .${outlinedInputClasses.notchedOutline}`]: {
-          borderColor:
-            ownerState.color !== 'primary'
-              ? theme.palette[ownerState.color || 'primary'].main
-              : theme.palette.border.main,
-          '& legend': {
-            width: 0,
-          },
-        },
+      //   [`& .${outlinedInputClasses.notchedOutline}`]: {
+      //     borderColor:
+      //       ownerState.color !== 'secondary'
+      //         ? theme.palette[ownerState.color || 'secondary'].main
+      //         : theme.palette.border.main,
+      //     '& legend': {
+      //       width: 0,
+      //     },
+      //   },
 
-        [`&.${inputBaseClasses.root}:hover .${outlinedInputClasses.notchedOutline}`]:
-          {
-            borderColor:
-              ownerState.color === 'primary'
-                ? theme.palette.border.main
-                : 'inherit',
-          },
+      //   [`&.${inputBaseClasses.root}:hover .${outlinedInputClasses.notchedOutline}`]:
+      //     {
+      //       borderColor:
+      //         ownerState.color === 'primary'
+      //           ? theme.palette.border.main
+      //           : 'inherit',
+      //     },
 
-        [`&.${inputBaseClasses.focused} .${outlinedInputClasses.notchedOutline}`]:
-          {
-            borderColor: `${theme.palette[ownerState.color || 'primary'].main}`,
-          },
+      //   [`&.${inputBaseClasses.focused} .${outlinedInputClasses.notchedOutline}`]:
+      //     {
+      //       borderColor: `${theme.palette[ownerState.color || 'primary'].main}`,
+      //     },
 
-        [`&.${inputBaseClasses.focused}:hover .${outlinedInputClasses.notchedOutline}`]:
-          {
-            borderColor: `${theme.palette[ownerState.color || 'primary'].main}`,
-          },
+      //   [`&.${inputBaseClasses.focused}:hover .${outlinedInputClasses.notchedOutline}`]:
+      //     {
+      //       borderColor: `${theme.palette[ownerState.color || 'secondary'].main}`,
+      //     },
 
-        // disabled
-        [`&.${inputBaseClasses.disabled}`]: {
-          color: theme.palette.text.disabled,
-          background: `${(theme.palette.secondary as CustomColorPartial)[100]} !important`,
-        },
-        [`&.${inputBaseClasses.disabled} .${outlinedInputClasses.notchedOutline}`]:
-          {
-            borderColor: theme.palette.border.main,
-          },
-        [`&.${inputBaseClasses.disabled}:hover .${outlinedInputClasses.notchedOutline}`]:
-          {
-            borderColor: theme.palette.border.main,
-          },
-      }),
+      //   // disabled
+      //   [`&.${inputBaseClasses.disabled}`]: {
+      //     color: theme.palette.text.disabled,
+      //     background: `${(theme.palette.secondary as CustomColorPartial)[100]} !important`,
+      //   },
+      //   [`&.${inputBaseClasses.disabled} .${outlinedInputClasses.notchedOutline}`]:
+      //     {
+      //       borderColor: theme.palette.border.main,
+      //     },
+      //   [`&.${inputBaseClasses.disabled}:hover .${outlinedInputClasses.notchedOutline}`]:
+      //     {
+      //       borderColor: theme.palette.border.main,
+      //     },
+      // }),
     },
   },
 

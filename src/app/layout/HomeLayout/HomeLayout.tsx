@@ -6,7 +6,6 @@ export const HomeLayout = () => {
   return (
     <MainLayout>
       <Outlet />
-      HomeLayout
     </MainLayout>
   )
 }

@@ -1,4 +1,9 @@
-import { ComingSoon, DownloadSection, HeroSection } from 'entities/component'
+import {
+  ComingSoon,
+  DownloadSection,
+  Footer,
+  HeroSection,
+} from 'entities/component'
 import { Services } from './Services'
 import { BuzWorking } from './BuzWorking'
 import { HomeWrapperStyled } from './styles.component'
@@ -16,7 +21,7 @@ export const Home = () => {
         <WhyChooseUs />
       </HomeWrapperStyled>
       <DownloadSection />
-      <HomeWrapperStyled>
+      <HomeWrapperStyled style={{ marginBottom: '100px ' }}>
         <OurPeopleSection />
         <ReferAndEarn />
         <ComingSoon />
