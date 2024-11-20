@@ -1,5 +1,6 @@
 import React from 'react'
+import { AboutUs } from 'features/components'
 
 export const AboutUsPage = () => {
-  return <div>this is the about us page</div>
+  return <AboutUs />
 }

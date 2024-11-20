@@ -20,4 +20,9 @@ export const publicImages = {
   instagram: 'assets/logo/instagram.svg',
   linkedin: 'assets/logo/linkedin.svg',
   youtube: 'assets/logo/youtube.png',
+  aboutImg1: 'assets/images/aboutImg1.png',
+  aboutImg2: 'assets/images/aboutImg2.png',
+  aboutImg3: 'assets/images/aboutImg3.png',
+  aboutImg4: 'assets/images/aboutImg4.png',
+  aboutImg5: 'assets/images/aboutImg5.png',
 }

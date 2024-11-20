@@ -1,15 +1,15 @@
 import {
   ComingSoon,
   DownloadSection,
-  Footer,
   HeroSection,
+  WhyChooseUs,
 } from 'entities/component'
 import { Services } from './Services'
 import { BuzWorking } from './BuzWorking'
 import { HomeWrapperStyled } from './styles.component'
-import { WhyChooseUs } from './WhyChoose'
 import { OurPeopleSection } from './OurPeople'
 import { ReferAndEarn } from './ReferAndEarn'
+import { whyChooseUseCardData } from 'features/model'
 
 export const Home = () => {
   return (
@@ -18,7 +18,7 @@ export const Home = () => {
       <HomeWrapperStyled>
         <BuzWorking />
         <Services />
-        <WhyChooseUs />
+        <WhyChooseUs data={whyChooseUseCardData} />
       </HomeWrapperStyled>
       <DownloadSection />
       <HomeWrapperStyled style={{ marginBottom: '100px ' }}>

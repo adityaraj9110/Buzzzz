@@ -1,11 +1,7 @@
 import { publicImages } from 'shared/config'
+import { CardDataType } from 'shared/model'
 
-type CardData = {
-  title: string
-  desc: string
-  iconUrl: string
-}
-export const whyChooseUseCardData: CardData[] = [
+export const whyChooseUseCardData: CardDataType[] = [
   {
     title: 'Instant Cab Booking',
     desc: 'No more waiting. With BuzzCabs, book your ride in seconds and get a cab right when you need it.',

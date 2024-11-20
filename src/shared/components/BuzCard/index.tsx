@@ -7,14 +7,16 @@ export const BuzCard = ({
   cardTitle,
   cardDescription,
   iconBackgroundColor,
+  cardWidth = undefined,
 }: {
   iconUrl: string
   cardTitle: string
   cardDescription: string
   iconBackgroundColor?: string
+  cardWidth?: number
 }) => {
   return (
-    <PaperStyled elevation={3} variant="elevation">
+    <PaperStyled elevation={3} variant="elevation" customWidth={cardWidth}>
       <RoundedIcon
         iconBackgroundColor={iconBackgroundColor}
         content={<img src={iconUrl} alt="logo" />}

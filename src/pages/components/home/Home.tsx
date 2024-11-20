@@ -1,10 +1,6 @@
 import React from 'react'
-import { Home } from 'features/components/'
+import { Home } from 'features/components'
 
 export const HomePage = () => {
-  return (
-    <>
-      <Home />
-    </>
-  )
+  return <Home />
 }
