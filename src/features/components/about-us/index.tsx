@@ -2,6 +2,7 @@ import React from 'react'
 import { AboutUsWrapperStyled } from './styles.component'
 import { WhoWeAre } from './whoWeAre'
 import { WhyChooseUsAbout } from './whyChooseUsAbout'
+import { GetInTouch } from 'entities/component'
 
 export const AboutUs = () => {
   return (
@@ -9,6 +10,7 @@ export const AboutUs = () => {
       <AboutUsWrapperStyled>
         <WhoWeAre />
         <WhyChooseUsAbout />
+        <GetInTouch />
       </AboutUsWrapperStyled>
     </div>
   )

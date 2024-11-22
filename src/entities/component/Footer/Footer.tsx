@@ -1,9 +1,18 @@
 import React, { useMemo } from 'react'
-import { Button, Divider, Stack, TextField, Typography } from '@mui/material'
+import { Button, Stack, Typography } from '@mui/material'
 import { publicImages } from 'shared/config'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { AppPathsName, appPaths } from 'entities/config'
 import { NavLink, useLocation } from 'react-router-dom'
+import {
+  DividerStyled,
+  NavigationWrapperStyled,
+  StackStyled,
+  StackWrapperStyled,
+  SubscribeStyled,
+  TextFieldStyled,
+  TopViewWrapperStyled,
+} from './styles.component'
 
 type MenuItem = {
   label: string
@@ -35,25 +44,13 @@ export const Footer = () => {
   }, [location, menuItem])
 
   return (
-    <Stack
-      gap={'50px'}
-      padding={'50px 70px 70px 70px'}
-      sx={{
-        backgroundColor: 'neutral.black',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '14px',
-        }}
-      >
+    <StackStyled>
+      <TopViewWrapperStyled>
         <img src={publicImages.buzLogo} alt="logo" />
         <Typography variant="h6.700" color="neutral.white">
           BuzzCabs
         </Typography>
-      </div>
+      </TopViewWrapperStyled>
 
       <Stack gap={'20px'}>
         <Stack>
@@ -64,28 +61,11 @@ export const Footer = () => {
             Join our community to recieve updates.
           </Typography>
         </Stack>
-        <div style={{ display: 'flex', gap: '6px' }}>
-          <TextField
+        <SubscribeStyled>
+          <TextFieldStyled
             name="email"
             placeholder="Enter your email address"
             fullWidth={false}
-            sx={{
-              border: '130px',
-              ['.MuiInputBase-root']: {
-                borderRadius: '130px',
-                color: 'neutral.500',
-                background: '#191919',
-                border: 'none !important',
-              },
-              ['& .MuiInputBase-root:focus']: {
-                border: 'unset',
-              },
-              '& .MuiOutlinedInput-root': {
-                '&.Mui-focused fieldset': {
-                  borderColor: 'transparent',
-                },
-              },
-            }}
           />
           <Button
             variant="contained"
@@ -95,19 +75,13 @@ export const Footer = () => {
           >
             <Typography variant="body2.700">SUBSCRIBE</Typography>
           </Button>
-        </div>
+        </SubscribeStyled>
       </Stack>
 
       <Stack gap={'30px'}>
         {/* navigation links */}
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div
-            style={{
-              display: 'flex',
-              minWidth: '350px',
-              justifyContent: 'space-between',
-            }}
-          >
+        <NavigationWrapperStyled>
+          <StackWrapperStyled>
             <Stack>
               {mainMenuItems.map(({ label, value }, ind) => {
                 const isSelected = currentMenuItem.value === value
@@ -149,17 +123,15 @@ export const Footer = () => {
                 )
               })}
             </Stack>
-          </div>
-        </div>
+          </StackWrapperStyled>
+        </NavigationWrapperStyled>
 
         {/* divider */}
-        <Divider
-          sx={{ backgroundColor: 'neutral.white', color: 'neutral.white' }}
-        />
+        <DividerStyled />
         <Typography variant="caption1" color="neutral.white">
           &copy; 2024 BuzzCabs. All Rights Reserved.
         </Typography>
       </Stack>
-    </Stack>
+    </StackStyled>
   )
 }

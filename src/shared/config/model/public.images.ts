@@ -25,4 +25,6 @@ export const publicImages = {
   aboutImg3: 'assets/images/aboutImg3.png',
   aboutImg4: 'assets/images/aboutImg4.png',
   aboutImg5: 'assets/images/aboutImg5.png',
+  mail: 'assets/logo/mail.svg',
+  phone: 'assets/logo/phone.svg',
 }

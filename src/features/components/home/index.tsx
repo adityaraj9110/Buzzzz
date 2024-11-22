@@ -21,7 +21,7 @@ export const Home = () => {
         <WhyChooseUs data={whyChooseUseCardData} />
       </HomeWrapperStyled>
       <DownloadSection />
-      <HomeWrapperStyled style={{ marginBottom: '100px ' }}>
+      <HomeWrapperStyled>
         <OurPeopleSection />
         <ReferAndEarn />
         <ComingSoon />

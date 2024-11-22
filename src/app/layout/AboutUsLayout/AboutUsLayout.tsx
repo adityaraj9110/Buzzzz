@@ -7,7 +7,6 @@ export const AboutUsLayout = () => {
   return (
     <MainLayout>
       <Outlet />
-      AboutUsLayout
     </MainLayout>
   )
 }

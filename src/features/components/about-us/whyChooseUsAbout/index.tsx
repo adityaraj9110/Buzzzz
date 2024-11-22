@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react'                             
 import { WhyChooseUs } from 'entities/component'
 import { whyChooseUseCardDataForAbout } from 'features/model'
 
