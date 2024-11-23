@@ -5,4 +5,5 @@ export const ImagesWrapperStyled = styled('div')({
   width: '100%',
   gap: '8px',
   flexWrap: 'wrap',
+  justifyContent: 'space-between',
 })

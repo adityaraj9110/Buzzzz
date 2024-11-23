@@ -4,7 +4,7 @@ export const AboutUsWrapperStyled = styled('div')({
   gap: '100px',
   display: 'flex',
   flexDirection: 'column',
-  width: '1600px',
+  width: '1300px',
   maxWidth: '90%',
   margin: '0 auto',
   marginTop: '30px',
