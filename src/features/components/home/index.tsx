@@ -13,7 +13,14 @@ import { whyChooseUseCardData } from 'features/model'
 
 export const Home = () => {
   return (
-    <div style={{ gap: '100px', display: 'flex', flexDirection: 'column' }}>
+    <div
+      style={{
+        gap: '100px',
+        display: 'flex',
+        flexDirection: 'column',
+        overflowX: 'hidden',
+      }}
+    >
       <HeroSection />
       <HomeWrapperStyled>
         <BuzWorking />
