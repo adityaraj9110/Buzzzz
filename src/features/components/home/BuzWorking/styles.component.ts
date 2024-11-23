@@ -7,6 +7,8 @@ export const InfoSectionWrapperStyled = styled('div')(
     background: palette.blue['100'],
     padding: '1rem',
     borderRadius: '10px',
+    width: '100%',
+    justifyContent: 'space-between',
   })
 )
 

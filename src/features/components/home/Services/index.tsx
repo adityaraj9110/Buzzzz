@@ -23,7 +23,12 @@ const ServicesShowcase = () => {
     publicImages.bikeBooking,
   ]
   return (
-    <Stack direction={'row'} gap={'30px'}>
+    <Stack
+      direction={'row'}
+      gap={'30px'}
+      width={'100%'}
+      justifyContent={'space-between'}
+    >
       {servicesImg.map((url) => (
         <img src={url} key={url} />
       ))}

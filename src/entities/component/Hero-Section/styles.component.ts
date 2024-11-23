@@ -5,7 +5,7 @@ export const HeroSectionStyled = styled('div')({
   backgroundImage: `url(${publicImages.heroSectionImage})`,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  height: '80vh',
+  height: '90vh',
   width: '100%',
   display: 'flex',
   flexDirection: 'column',

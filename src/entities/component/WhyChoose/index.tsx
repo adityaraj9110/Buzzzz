@@ -52,7 +52,15 @@ const Cards = ({
 }) => {
   const { palette } = useTheme()
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '30px',
+        width: '100%',
+        justifyContent: 'space-between',
+      }}
+    >
       {data.map(({ desc, iconUrl, title }) => (
         <BuzCard
           key={iconUrl}
