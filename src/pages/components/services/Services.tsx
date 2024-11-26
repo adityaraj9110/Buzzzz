@@ -1,5 +1,10 @@
 import React from 'react'
+import { Services } from 'features/components'
 
 export const ServicesPage = () => {
-  return <div>THis is services page only</div>
+  return (
+    <div>
+      <Services />
+    </div>
+  )
 }

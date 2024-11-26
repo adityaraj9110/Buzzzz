@@ -27,4 +27,11 @@ export const publicImages = {
   aboutImg5: 'assets/images/aboutImg5.png',
   mail: 'assets/logo/mail.svg',
   phone: 'assets/logo/phone.svg',
+  auto: 'assets/images/auto.png',
+  scooty: 'assets/images/scooty.png',
+  taxy: 'assets/images/taxy.png',
+  moneyCal: 'assets/images/moneyCal.png',
+  safeAndSecure: 'assets/images/safeAndSecure.svg',
+  taxyPickUp: 'assets/images/taxyPickUp.svg',
+  waitForCab: 'assets/images/waitForCab.svg',
 }

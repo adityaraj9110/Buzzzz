@@ -5,8 +5,8 @@ import { MainLayout } from '../MainLayout/MainLayout'
 export const ServiceLayout = () => {
   return (
     <MainLayout>
-      ServiceLayout
       <Outlet />
+      ServiceLayout
     </MainLayout>
   )
 }
