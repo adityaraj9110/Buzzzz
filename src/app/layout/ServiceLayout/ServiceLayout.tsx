@@ -6,7 +6,6 @@ export const ServiceLayout = () => {
   return (
     <MainLayout>
       <Outlet />
-      ServiceLayout
     </MainLayout>
   )
 }

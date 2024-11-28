@@ -1,28 +1,11 @@
 import React from 'react'
-import { Stack, Typography, useTheme } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
+import { StackStyled, WrapperStyled } from './styles.component'
 
 export const HeroSection = () => {
-  const { palette } = useTheme()
   return (
-    <Stack
-      style={{
-        width: '100vw',
-        minHeight: '450px',
-        justifyContent: 'center',
-        gap: '30px',
-        background: palette.accent[900],
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1550px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '30px',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+    <StackStyled>
+      <WrapperStyled>
         <Stack>
           <Typography variant="h5.700" color="neutral.white">
             Your{' '}
@@ -56,7 +39,7 @@ export const HeroSection = () => {
           weekend getaway, BuzzCabs is here to offer reliable, safe, and
           convenient rides for you.
         </Typography>
-      </div>
-    </Stack>
+      </WrapperStyled>
+    </StackStyled>
   )
 }
