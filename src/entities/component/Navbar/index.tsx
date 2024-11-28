@@ -1,7 +1,14 @@
 import React, { useMemo, useState } from 'react'
-import { Button, IconButton, Menu, MenuItem, Typography } from '@mui/material'
+import {
+  Box,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  Typography,
+} from '@mui/material'
 import { AppPathsName, appPaths } from 'entities/config'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { publicImages } from 'shared/config'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import {
@@ -26,8 +33,9 @@ const menuItem: MenuItem[] = [
     logo: true,
 
     subMenu: [
-      { label: 'Car', value: 'cabServices' },
-      { label: 'Bike', value: 'bikeServices' },
+      { label: 'Cab Service', value: 'cabServices' },
+      { label: 'Ticket Service', value: 'bikeServices' },
+      { label: 'Grocery Service', value: 'bikeServices' },
     ],
   },
   { label: 'Help & Support', value: 'helpAndSupport' },
@@ -36,6 +44,8 @@ const menuItem: MenuItem[] = [
 export const Navbar = () => {
   const location = useLocation()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const navigate = useNavigate()
 
   const currentMenuItem = useMemo(() => {
     return (
@@ -46,10 +56,23 @@ export const Navbar = () => {
   }, [location, menuItem])
 
   const handleMenuClose = () => {
+    setMenuOpen(false)
     setAnchorEl(null)
   }
+
   const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
+    setMenuOpen(true)
+  }
+  const handleNavigateToComingSoon = () => {
+    handleMenuClose()
+    navigate(appPaths['/'])
+    setTimeout(() => {
+      const comingSoonElement = document.getElementById('comingSoon')
+      if (comingSoonElement) {
+        comingSoonElement.scrollIntoView({ behavior: 'smooth' })
+      }
+    }, 0)
   }
 
   return (
@@ -66,56 +89,62 @@ export const Navbar = () => {
           const isSelected = currentMenuItem.value === value
           const hasSubMenu = Boolean(subMenu)
           return (
-            <NavLink
-              key={value}
-              to={appPaths[value]}
-              style={{ textDecoration: 'none' }}
-            >
-              <Typography
-                variant="body1.700"
-                color={isSelected ? 'primary.main' : 'neutral.white'}
+            <>
+              {' '}
+              <NavLink
+                key={value}
+                to={appPaths[value]}
+                style={{ textDecoration: 'none' }}
               >
-                {label}
-              </Typography>
-              {logo && (
-                <IconButton onClick={handleMenuOpen}>
-                  <ExpandMoreIcon
-                    sx={{
-                      color: 'neutral.white',
-                      ['&:hover']: { color: 'neutral.white !important' },
-                    }}
-                  />
-                </IconButton>
-              )}
+                <Typography
+                  variant="body1.700"
+                  color={isSelected ? 'primary.main' : 'neutral.white'}
+                >
+                  {label}
+                </Typography>
+                {logo && (
+                  <IconButton
+                    onClick={handleMenuOpen}
+                    onMouseEnter={handleMenuOpen}
+                  >
+                    <ExpandMoreIcon
+                      sx={{
+                        color: 'neutral.white',
+                        ['&:hover']: { color: 'neutral.white !important' },
+                      }}
+                    />
+                  </IconButton>
+                )}
+              </NavLink>
               {hasSubMenu && (
                 <Menu
                   anchorEl={anchorEl}
-                  open={Boolean(anchorEl)}
+                  open={menuOpen}
                   onClose={handleMenuClose}
                   MenuListProps={{
                     onMouseLeave: handleMenuClose,
+                    onMouseEnter: () => setMenuOpen(true),
                   }}
                 >
                   {subMenu?.map((subItem) => (
-                    <MenuItem key={subItem.value}>
-                      <NavLink
-                        key={value}
-                        to={appPaths[subItem.value]}
-                        style={{ textDecoration: 'none' }}
-                      >
+                    <MenuItem
+                      key={subItem.value}
+                      onClick={() => handleNavigateToComingSoon()}
+                    >
+                      <Box key={value}>
                         <Typography
                           variant="body1.700"
-                          color={isSelected ? 'primary.main' : 'neutral.white'}
+                          color={isSelected ? 'primary.main' : 'neutral.black'}
                           component={'p'}
                         >
                           {subItem.label}
                         </Typography>
-                      </NavLink>
+                      </Box>
                     </MenuItem>
                   ))}
                 </Menu>
               )}
-            </NavLink>
+            </>
           )
         })}
       </MenuItemsWrapperStyled>
