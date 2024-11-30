@@ -45,10 +45,10 @@ const TopInfoSection = ({
 
 const Cards = ({
   data,
-  cardWidth,
+  cardBasis,
 }: {
   data: CardDataType[]
-  cardWidth?: number
+  cardBasis?: string
 }) => {
   const { palette } = useTheme()
   return (
@@ -56,9 +56,10 @@ const Cards = ({
       style={{
         display: 'flex',
         flexWrap: 'wrap',
-        gap: '30px',
+        gap: '10px',
         width: '100%',
         justifyContent: 'space-between',
+        rowGap: '20px',
       }}
     >
       {data.map(({ desc, iconUrl, title }) => (
@@ -68,7 +69,7 @@ const Cards = ({
           cardTitle={title}
           iconUrl={iconUrl}
           iconBackgroundColor={palette.neutral.black}
-          cardWidth={cardWidth}
+          cardBasis={cardBasis}
         />
       ))}
     </div>
@@ -79,13 +80,13 @@ export const WhyChooseUs = ({
   title,
   subTitle,
   textPrimary,
-  cardWidth,
+  cardBasis,
 }: {
   data: CardDataType[]
   title?: string
   subTitle?: string
   textPrimary?: string
-  cardWidth?: number
+  cardBasis?: string
 }) => {
   return (
     <BuzInfoSection
@@ -96,7 +97,7 @@ export const WhyChooseUs = ({
           title={title}
         />
       }
-      showcaseSection={<Cards data={data} cardWidth={cardWidth} />}
+      showcaseSection={<Cards data={data} cardBasis={cardBasis} />}
     />
   )
 }

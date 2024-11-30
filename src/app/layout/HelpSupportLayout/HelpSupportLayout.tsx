@@ -5,7 +5,6 @@ import { MainLayout } from '../MainLayout/MainLayout'
 export const HelpSupportLayout = () => {
   return (
     <MainLayout>
-      HelpSupportLayout
       <Outlet />
     </MainLayout>
   )

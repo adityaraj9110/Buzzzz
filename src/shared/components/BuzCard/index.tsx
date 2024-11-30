@@ -1,4 +1,4 @@
-import { Paper, Stack, Typography } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import { RoundedIcon } from '../Rounded-icon'
 import { PaperStyled } from './styles.component'
 
@@ -7,16 +7,20 @@ export const BuzCard = ({
   cardTitle,
   cardDescription,
   iconBackgroundColor,
-  cardWidth = undefined,
+  cardBasis = '32%',
 }: {
   iconUrl: string
   cardTitle: string
   cardDescription: string
   iconBackgroundColor?: string
-  cardWidth?: number
+  cardBasis?: string
 }) => {
   return (
-    <PaperStyled elevation={3} variant="elevation" customWidth={cardWidth}>
+    <PaperStyled
+      elevation={3}
+      variant="elevation"
+      sx={{ flexBasis: cardBasis }}
+    >
       <RoundedIcon
         iconBackgroundColor={iconBackgroundColor}
         content={<img src={iconUrl} alt="logo" />}

@@ -249,10 +249,10 @@ export const components: ThemeOptions['components'] = {
 
         '&:hover': {
           // borderColor: theme.palette.border.main,
-          backgroundColor: theme.palette.state.hover,
+          backgroundColor: 'transparent',
           color: theme.palette.text.primary,
           [`& .${svgIconClasses.root}`]: {
-            color: theme.palette.neutral.white,
+            color: 'inherit',
           },
         },
         '&:active': {

@@ -41,6 +41,15 @@ const menuItem: MenuItem[] = [
   { label: 'Help & Support', value: 'helpAndSupport' },
 ]
 
+const smoothScroll = (element: string) => {
+  setTimeout(() => {
+    const comingSoonElement = document.getElementById(element)
+    if (comingSoonElement) {
+      comingSoonElement.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, 0)
+}
+
 export const Navbar = () => {
   const location = useLocation()
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -64,15 +73,15 @@ export const Navbar = () => {
     setAnchorEl(event.currentTarget)
     setMenuOpen(true)
   }
-  const handleNavigateToComingSoon = () => {
+  const handleNavigateToComingSoon = (cab?: boolean) => {
     handleMenuClose()
-    navigate(appPaths['/'])
-    setTimeout(() => {
-      const comingSoonElement = document.getElementById('comingSoon')
-      if (comingSoonElement) {
-        comingSoonElement.scrollIntoView({ behavior: 'smooth' })
-      }
-    }, 0)
+    if (cab) {
+      navigate(appPaths['services'] + '#cabService')
+      smoothScroll('cabService')
+    } else {
+      navigate(appPaths['/'])
+      smoothScroll('comingSoon')
+    }
   }
 
   return (
@@ -126,22 +135,43 @@ export const Navbar = () => {
                     onMouseEnter: () => setMenuOpen(true),
                   }}
                 >
-                  {subMenu?.map((subItem) => (
-                    <MenuItem
-                      key={subItem.value}
-                      onClick={() => handleNavigateToComingSoon()}
-                    >
-                      <Box key={value}>
-                        <Typography
-                          variant="body1.700"
-                          color={isSelected ? 'primary.main' : 'neutral.black'}
-                          component={'p'}
-                        >
-                          {subItem.label}
-                        </Typography>
-                      </Box>
-                    </MenuItem>
-                  ))}
+                  {subMenu?.map((subItem) => {
+                    const isSubMenuSelected = location.hash.includes(
+                      subItem.value.slice(1, -1)
+                    )
+                    return (
+                      <MenuItem
+                        key={subItem.value}
+                        onClick={() =>
+                          handleNavigateToComingSoon(
+                            subItem.value === 'cabServices'
+                          )
+                        }
+                        sx={{
+                          backgroundColor: isSubMenuSelected
+                            ? 'sky.200'
+                            : 'neutral.white',
+                          '&:hover': {
+                            backgroundColor: isSubMenuSelected
+                              ? 'sky.200'
+                              : 'default',
+                          },
+                        }}
+                      >
+                        <Box key={value}>
+                          <Typography
+                            variant="body1.700"
+                            color={
+                              isSelected ? 'primary.main' : 'neutral.black'
+                            }
+                            component={'p'}
+                          >
+                            {subItem.label}
+                          </Typography>
+                        </Box>
+                      </MenuItem>
+                    )
+                  })}
                 </Menu>
               )}
             </>
