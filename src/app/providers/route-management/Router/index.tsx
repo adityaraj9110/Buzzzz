@@ -1,5 +1,6 @@
 import {
   AboutUsLayout,
+  CareerLayout,
   HelpSupportLayout,
   HomeLayout,
   ServiceLayout,
@@ -7,6 +8,7 @@ import {
 import { appPaths } from 'entities/config'
 import { AboutUsPage } from 'pages/components/about-us/AboutUs'
 import { CabServicesPage } from 'pages/components/cab-services/CabServices'
+import { CareerPage } from 'pages/components/carrer'
 import { HelpSupportPage } from 'pages/components/help-support/HelpSupport'
 import { HomePage } from 'pages/components/home/Home'
 import { ServicesPage } from 'pages/components/services/Services'
@@ -34,13 +36,13 @@ const Router = createBrowserRouter(
         <Route path={appPaths.helpAndSupport} element={<HelpSupportPage />} />
       </Route>
 
+      <Route element={<CareerLayout />}>
+        <Route path={appPaths.career} element={<CareerPage />} />
+      </Route>
+
       <Route element={<ServiceLayout />}>
         <Route path={appPaths.services} element={<ServicesPage />} />
         <Route path={appPaths.cabServices} element={<CabServicesPage />} />
-        {/* <Route
-          path={appPaths.groceriesDelivery}
-          element={<GroceryDeliveryP />}
-        /> */}
         <Route
           path={appPaths.ticketBookingServices}
           element={<TicketBookingServicesPage />}

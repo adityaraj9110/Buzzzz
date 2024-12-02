@@ -82,6 +82,7 @@ export const lightThemePalette: PaletteOptions = {
     main: '#808080',
     thumb: '#bbbec2',
     track: '#e8e9eb',
+    slate: '#F2F2F2',
   },
   buttonDisabled: blue[100]!,
 

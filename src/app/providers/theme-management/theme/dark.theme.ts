@@ -75,6 +75,7 @@ export const darkThemePalette: PaletteOptions = {
     main: '#f5f5f5',
     thumb: '#bbbec2',
     track: '#e8e9eb',
+    slate: '#F2F2F2',
   },
   buttonDisabled: neutral[300]!,
 

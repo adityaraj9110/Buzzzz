@@ -34,6 +34,7 @@ export type CustomPaletteOptions = ColorPaletteOptions & {
     main: string
     thumb: string
     track: string
+    slate: string
   }>
   highlight: CustomPaletteColorOptions
   border: CustomPaletteColorOptions

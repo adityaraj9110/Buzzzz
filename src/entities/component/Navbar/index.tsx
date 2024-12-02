@@ -57,10 +57,8 @@ export const Navbar = () => {
   const navigate = useNavigate()
 
   const currentMenuItem = useMemo(() => {
-    return (
-      menuItem.find((item) =>
-        location.pathname.split('/')[1].includes(item.value)
-      ) || menuItem[0]
+    return menuItem.find((item) =>
+      location.pathname.split('/')[1].includes(item.value)
     )
   }, [location, menuItem])
 
@@ -95,7 +93,9 @@ export const Navbar = () => {
 
       <MenuItemsWrapperStyled>
         {menuItem.map(({ label, value, subMenu, logo }) => {
-          const isSelected = currentMenuItem.value === value
+          const isSelected =
+            (location.pathname.split('/')[1].length === 0 && value === '/') ||
+            currentMenuItem?.value === value
           const hasSubMenu = Boolean(subMenu)
           return (
             <>

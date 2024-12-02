@@ -34,4 +34,5 @@ export const publicImages = {
   safeAndSecure: 'assets/images/safeAndSecure.svg',
   taxyPickUp: 'assets/images/taxyPickUp.svg',
   waitForCab: 'assets/images/waitForCab.svg',
+  link: 'assets/logo/link.svg',
 }
