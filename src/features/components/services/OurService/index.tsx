@@ -13,7 +13,7 @@ import {
 export const OurService = () => {
   const TopView = () => {
     return (
-      <Stack spacing={'5px'} id='cabService'>
+      <Stack spacing={'5px'} id="cabService">
         <Typography variant="h5.700" textAlign={'center'}>
           Our{' '}
           <Typography variant="h5.700" color="primary.main">
@@ -32,7 +32,7 @@ export const OurService = () => {
   const BottomView = () => {
     return (
       <BottomViewWrapperStyled>
-        <CardStyled>
+        <CardStyled color="sky">
           <Stack spacing={'14px'} maxWidth={'360px'}>
             <Typography variant="h6.700">Cab Booking</Typography>
             <Typography variant="body1.500" maxWidth={'236px'}>
@@ -48,7 +48,7 @@ export const OurService = () => {
             }}
           />
         </CardStyled>
-        <CardStyled>
+        <CardStyled color="blue">
           <Stack spacing={'14px'} maxWidth={'360px'}>
             <Typography variant="h6.700">Auto Booking</Typography>
             <Typography variant="body1.500" maxWidth={'236px'}>
@@ -57,7 +57,7 @@ export const OurService = () => {
           </Stack>
           <AutoImgStyled src={publicImages.auto} />
         </CardStyled>
-        <CardStyled>
+        <CardStyled color="neutral">
           <Stack spacing={'14px'} maxWidth={'360px'}>
             <Typography variant="h6.700">Bike Booking</Typography>
             <Typography variant="body1.500" maxWidth={'236px'}>

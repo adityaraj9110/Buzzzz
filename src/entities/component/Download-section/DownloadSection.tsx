@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Stack, Typography, useTheme } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import AppleIcon from '@mui/icons-material/Apple'
 import ShopTwoIcon from '@mui/icons-material/ShopTwo'
 import { publicImages } from 'shared/config'

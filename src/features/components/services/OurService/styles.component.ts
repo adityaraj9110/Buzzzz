@@ -1,4 +1,5 @@
 import { Card, styled } from '@mui/material'
+import { ColorPaletteOptions } from 'app/providers/theme-management/theme/types'
 
 export const BottomViewWrapperStyled = styled('div')({
   display: 'flex',
@@ -7,12 +8,14 @@ export const BottomViewWrapperStyled = styled('div')({
   flexWrap: 'wrap',
 })
 
-export const CardStyled = styled(Card)({
+export const CardStyled = styled(Card)<{
+  color: keyof ColorPaletteOptions
+}>(({ theme: { palette }, color }) => ({
   minHeight: '330px',
-  background: '#E6E6E6',
+  background: palette[color][100],
   position: 'relative',
   flex: 1,
-})
+}))
 
 export const TaxyImgStyled = styled('img')({
   position: 'absolute',
