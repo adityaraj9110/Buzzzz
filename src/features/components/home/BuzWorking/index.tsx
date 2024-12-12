@@ -7,6 +7,7 @@ import {
   WrapperStackStyled,
 } from './styles.component'
 import { RoundedIcon } from 'shared/components'
+import { useScreenSize } from 'shared/hooks'
 
 export const BuzWorking = () => {
   const TopView = () => {
@@ -28,10 +29,11 @@ export const BuzWorking = () => {
   }
 
   const InfoSection = () => {
+    const { smallScreen } = useScreenSize()
     return (
-      <InfoSectionWrapperStyled>
+      <InfoSectionWrapperStyled smallScreen={smallScreen}>
         {Array.from(Array(4).keys()).map((i) => (
-          <StackStyled key={i}>
+          <StackStyled key={i} smallScreen>
             <WrapperStackStyled>
               <RoundedIcon
                 content={
@@ -46,7 +48,13 @@ export const BuzWorking = () => {
                 Android.
               </Typography>
             </WrapperStackStyled>
-            {i < 3 && <img src={publicImages.arrow} alt="arrow" />}
+            {i < 3 && (
+              <img
+                src={publicImages.arrow}
+                alt="arrow"
+                style={!smallScreen ? 'unset' : { transform: 'rotate(90deg)' }}
+              />
+            )}
           </StackStyled>
         ))}
       </InfoSectionWrapperStyled>

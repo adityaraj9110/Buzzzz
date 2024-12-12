@@ -6,6 +6,14 @@ import {
   Menu,
   MenuItem,
   Typography,
+  Drawer,
+  Divider,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  List,
+  ListItem,
+  Stack,
 } from '@mui/material'
 import { AppPathsName, appPaths } from 'entities/config'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
@@ -16,6 +24,9 @@ import {
   NavbarWrapperStyled,
   StartViewWrapperStyled,
 } from './styles.component'
+import { useScreenSize } from 'shared/hooks'
+import MenuIcon from '@mui/icons-material/Menu'
+import CloseIcon from '@mui/icons-material/Close'
 
 type MenuItem = {
   label: string
@@ -55,6 +66,7 @@ export const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const [menuOpen, setMenuOpen] = useState(false)
   const navigate = useNavigate()
+  const [drawerOpen, setDrawerOpen] = useState(false)
 
   const currentMenuItem = useMemo(() => {
     return menuItem.find((item) =>
@@ -81,9 +93,37 @@ export const Navbar = () => {
       smoothScroll('comingSoon')
     }
   }
+  const toggleDrawer = (open: boolean) => () => {
+    setDrawerOpen(open)
+  }
+
+  const { smallScreen } = useScreenSize()
+  const renderSubMenu = (subMenu?: MenuItem[]) =>
+    subMenu?.map((subItem) => {
+      const isSubMenuSelected = location.hash.includes(
+        subItem.value.slice(1, -1)
+      )
+      return (
+        <MenuItem
+          key={subItem.value}
+          onClick={() => {
+            handleNavigateToComingSoon(subItem.value === 'cabServices')
+            setDrawerOpen(false)
+          }}
+          sx={{
+            backgroundColor: isSubMenuSelected ? 'sky.200' : 'neutral.white',
+            '&:hover': {
+              backgroundColor: isSubMenuSelected ? 'sky.200' : 'default',
+            },
+          }}
+        >
+          {subItem.label}
+        </MenuItem>
+      )
+    })
 
   return (
-    <NavbarWrapperStyled>
+    <NavbarWrapperStyled smallScreen={smallScreen}>
       <StartViewWrapperStyled>
         <img src={publicImages.buzLogo} alt="brand-logo" />
         <Typography variant="h6.700" color="neutral.white">
@@ -91,97 +131,202 @@ export const Navbar = () => {
         </Typography>
       </StartViewWrapperStyled>
 
-      <MenuItemsWrapperStyled>
-        {menuItem.map(({ label, value, subMenu, logo }) => {
-          const isSelected =
-            (location.pathname.split('/')[1].length === 0 && value === '/') ||
-            currentMenuItem?.value === value
-          const hasSubMenu = Boolean(subMenu)
-          return (
-            <>
-              {' '}
-              <NavLink
-                key={value}
-                to={appPaths[value]}
-                style={{ textDecoration: 'none' }}
-              >
-                <Typography
-                  variant="body1.700"
-                  color={isSelected ? 'primary.main' : 'neutral.white'}
+      {!smallScreen && (
+        <MenuItemsWrapperStyled>
+          {menuItem.map(({ label, value, subMenu, logo }) => {
+            const isSelected =
+              (location.pathname.split('/')[1].length === 0 && value === '/') ||
+              currentMenuItem?.value === value
+            const hasSubMenu = Boolean(subMenu)
+            return (
+              <>
+                <NavLink
+                  key={value}
+                  to={appPaths[value]}
+                  style={{ textDecoration: 'none' }}
                 >
-                  {label}
-                </Typography>
-                {logo && (
-                  <IconButton
-                    onClick={handleMenuOpen}
-                    onMouseEnter={handleMenuOpen}
+                  <Typography
+                    variant="body1.700"
+                    color={isSelected ? 'primary.main' : 'neutral.white'}
                   >
-                    <ExpandMoreIcon
-                      sx={{
-                        color: 'neutral.white',
-                        ['&:hover']: { color: 'neutral.white !important' },
-                      }}
-                    />
-                  </IconButton>
-                )}
-              </NavLink>
-              {hasSubMenu && (
-                <Menu
-                  anchorEl={anchorEl}
-                  open={menuOpen}
-                  onClose={handleMenuClose}
-                  MenuListProps={{
-                    onMouseLeave: handleMenuClose,
-                    onMouseEnter: () => setMenuOpen(true),
-                  }}
-                >
-                  {subMenu?.map((subItem) => {
-                    const isSubMenuSelected = location.hash.includes(
-                      subItem.value.slice(1, -1)
-                    )
-                    return (
-                      <MenuItem
-                        key={subItem.value}
-                        onClick={() =>
-                          handleNavigateToComingSoon(
-                            subItem.value === 'cabServices'
-                          )
-                        }
+                    {label}
+                  </Typography>
+                  {logo && (
+                    <IconButton
+                      onClick={handleMenuOpen}
+                      onMouseEnter={handleMenuOpen}
+                    >
+                      <ExpandMoreIcon
                         sx={{
-                          backgroundColor: isSubMenuSelected
-                            ? 'sky.200'
-                            : 'neutral.white',
-                          '&:hover': {
+                          color: 'neutral.white',
+                          ['&:hover']: { color: 'neutral.white !important' },
+                        }}
+                      />
+                    </IconButton>
+                  )}
+                </NavLink>
+                {hasSubMenu && (
+                  <Menu
+                    anchorEl={anchorEl}
+                    open={menuOpen}
+                    onClose={handleMenuClose}
+                    MenuListProps={{
+                      onMouseLeave: handleMenuClose,
+                      onMouseEnter: () => setMenuOpen(true),
+                    }}
+                  >
+                    {subMenu?.map((subItem) => {
+                      const isSubMenuSelected = location.hash.includes(
+                        subItem.value.slice(1, -1)
+                      )
+                      return (
+                        <MenuItem
+                          key={subItem.value}
+                          onClick={() =>
+                            handleNavigateToComingSoon(
+                              subItem.value === 'cabServices'
+                            )
+                          }
+                          sx={{
                             backgroundColor: isSubMenuSelected
                               ? 'sky.200'
-                              : 'default',
-                          },
-                        }}
-                      >
-                        <Box key={value}>
-                          <Typography
-                            variant="body1.700"
-                            color={
-                              isSelected ? 'primary.main' : 'neutral.black'
-                            }
-                            component={'p'}
+                              : 'neutral.white',
+                            '&:hover': {
+                              backgroundColor: isSubMenuSelected
+                                ? 'sky.200'
+                                : 'default',
+                            },
+                          }}
+                        >
+                          <Box key={value}>
+                            <Typography
+                              variant="body1.700"
+                              color={
+                                isSelected ? 'primary.main' : 'neutral.black'
+                              }
+                              component={'p'}
+                            >
+                              {subItem.label}
+                            </Typography>
+                          </Box>
+                        </MenuItem>
+                      )
+                    })}
+                  </Menu>
+                )}
+              </>
+            )
+          })}
+        </MenuItemsWrapperStyled>
+      )}
+
+      {!smallScreen && (
+        <div>
+          <Button variant="contained">GET STARTED</Button>
+        </div>
+      )}
+
+      {smallScreen && (
+        <>
+          <IconButton onClick={toggleDrawer(true)}>
+            <MenuIcon sx={{ color: 'neutral.white' }} fontSize="large" />
+          </IconButton>
+          <Drawer
+            anchor="right"
+            open={drawerOpen}
+            onClose={toggleDrawer(false)}
+          >
+            <Stack sx={{ justifyContent: 'space-between', height: '100%' }}>
+              <Box sx={{ width: 250, padding: 2 }}>
+                {/* Drawer Header */}
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Typography variant="h6" color="primary">
+                    BuzzCabs
+                  </Typography>
+                  <IconButton onClick={toggleDrawer(false)}>
+                    <CloseIcon />
+                  </IconButton>
+                </Box>
+                <Divider sx={{ marginY: 1 }} />
+
+                <List>
+                  {menuItem.map(({ label, value, subMenu }) => {
+                    const isSelected =
+                      (location.pathname.split('/')[1].length === 0 &&
+                        value === '/') ||
+                      currentMenuItem?.value === value
+                    return (
+                      <React.Fragment key={value}>
+                        {!subMenu ? (
+                          <ListItem
+                            component={NavLink}
+                            to={appPaths[value]}
+                            style={{ textDecoration: 'none' }}
+                            sx={{
+                              ['&:hover']: {
+                                backgroundColor: 'state.hover',
+                              },
+                            }}
                           >
-                            {subItem.label}
-                          </Typography>
-                        </Box>
-                      </MenuItem>
+                            <Typography
+                              variant="body1"
+                              color={
+                                isSelected ? 'primary.main' : 'neutral.black'
+                              }
+                            >
+                              {label}
+                            </Typography>
+                          </ListItem>
+                        ) : (
+                          <Accordion
+                            sx={{
+                              border: 'none',
+                              ['& .MuiAccordionSummary-root']: {
+                                minHeight: '32px !important',
+                                maxHeight: '32px !important',
+
+                                ['&:hover']: {
+                                  backgroundColor: 'state.hover',
+                                },
+                              },
+                              ['& .MuiMenuItem-root']: {
+                                padding: '10px',
+                              },
+                            }}
+                          >
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                              <Typography
+                                component={NavLink}
+                                to={appPaths[value]}
+                                color={
+                                  isSelected ? 'primary.main' : 'neutral.black'
+                                }
+                                style={{ textDecoration: 'none' }}
+                              >
+                                {label}
+                              </Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                              {renderSubMenu(subMenu)}
+                            </AccordionDetails>
+                          </Accordion>
+                        )}
+                      </React.Fragment>
                     )
                   })}
-                </Menu>
-              )}
-            </>
-          )
-        })}
-      </MenuItemsWrapperStyled>
-
-      <div>
-        <Button variant="contained">GET STARTED</Button>
-      </div>
+                </List>
+              </Box>
+              <div style={{ padding: '16px' }}>
+                <Button variant="text">GET STARTED</Button>
+              </div>
+            </Stack>
+          </Drawer>
+        </>
+      )}
     </NavbarWrapperStyled>
   )
 }

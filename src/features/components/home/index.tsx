@@ -10,12 +10,14 @@ import { HomeWrapperStyled } from './styles.component'
 import { OurPeopleSection } from './OurPeople'
 import { ReferAndEarn } from './ReferAndEarn'
 import { whyChooseUseCardData } from 'features/model'
+import { useScreenSize } from 'shared/hooks'
 
 export const Home = () => {
+  const { smallScreen } = useScreenSize()
   return (
     <div
       style={{
-        gap: '100px',
+        gap: !smallScreen ? '100px' : '0',
         display: 'flex',
         flexDirection: 'column',
         overflowX: 'hidden',

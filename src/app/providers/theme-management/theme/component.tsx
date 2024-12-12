@@ -9,12 +9,11 @@ import {
   formLabelClasses,
   inputBaseClasses,
   outlinedInputClasses,
-  svgIconClasses,
   toggleButtonClasses,
 } from '@mui/material'
 import { ThemeOptions } from '@mui/material/styles'
 
-import { BaselineStyleClasses, CustomStylesClasses } from 'shared/styles'
+import { BaselineStyleClasses } from 'shared/styles'
 
 import { CustomColorPartial, StyleOverrideProps } from './types'
 import { typographyStylesObj } from './typography'
@@ -230,37 +229,37 @@ export const components: ThemeOptions['components'] = {
     },
   },
 
-  MuiIconButton: {
-    styleOverrides: {
-      sizeMedium: {
-        height: '32px',
-        width: '32px',
-        padding: '4px',
-      },
+  // MuiIconButton: {
+  //   styleOverrides: {
+  //     sizeMedium: {
+  //       height: '32px',
+  //       width: '32px',
+  //       padding: '4px',
+  //     },
 
-      root: ({ theme }) => ({
-        borderRadius: '8px',
+  //     root: ({ theme }) => ({
+  //       borderRadius: '8px',
 
-        [`&.${CustomStylesClasses.outline}`]: {
-          borderWidth: '1px',
-          borderStyle: 'solid',
-          borderColor: theme.palette.border.main,
-        },
+  //       [`&.${CustomStylesClasses.outline}`]: {
+  //         borderWidth: '1px',
+  //         borderStyle: 'solid',
+  //         borderColor: theme.palette.border.main,
+  //       },
 
-        '&:hover': {
-          // borderColor: theme.palette.border.main,
-          backgroundColor: 'transparent',
-          color: theme.palette.text.primary,
-          [`& .${svgIconClasses.root}`]: {
-            color: 'inherit',
-          },
-        },
-        '&:active': {
-          backgroundColor: theme.palette.state.active,
-        },
-      }),
-    },
-  },
+  //       '&:hover': {
+  //         // borderColor: theme.palette.border.main,
+  //         backgroundColor: 'transparent',
+  //         color: theme.palette.text.primary,
+  //         [`& .${svgIconClasses.root}`]: {
+  //           color: 'inherit',
+  //         },
+  //       },
+  //       '&:active': {
+  //         backgroundColor: theme.palette.state.active,
+  //       },
+  //     }),
+  //   },
+  // },
 
   MuiLinearProgress: {
     styleOverrides: {

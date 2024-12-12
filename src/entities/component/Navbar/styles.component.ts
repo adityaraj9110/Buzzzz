@@ -1,13 +1,16 @@
 import { styled } from '@mui/material'
 
-export const NavbarWrapperStyled = styled('div')(({ theme: { palette } }) => ({
-  background: palette.neutral.black,
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  padding: '1.25rem 4.375rem',
-  width: '100%',
-}))
+export const NavbarWrapperStyled = styled('div')<{ smallScreen: boolean }>(
+  ({ theme: { palette }, smallScreen }) => ({
+    background: palette.neutral.black,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: !smallScreen ? '1.25rem 4.375rem':'0',
+    paddingLeft:smallScreen?'32px':'0',
+    width: '100%',
+  })
+)
 
 export const StartViewWrapperStyled = styled('div')({
   display: 'flex',

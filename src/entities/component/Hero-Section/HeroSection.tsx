@@ -9,11 +9,13 @@ import {
   PromiseDataWrapperStyled,
   TopViewStyled,
 } from './styles.component'
+import { useScreenSize } from 'shared/hooks'
 
 export const HeroSection = () => {
+  const { smallScreen } = useScreenSize()
   return (
-    <HeroSectionStyled>
-      <TopViewStyled>
+    <HeroSectionStyled isSmall={smallScreen}>
+      <TopViewStyled isSmall={smallScreen}>
         <div>
           <Typography variant="h1.700" color="primary.main">
             BuzzCabs
@@ -33,7 +35,7 @@ export const HeroSection = () => {
 
         <PromiseDataWrapperStyled>
           {sitePromisesData.map(({ label, url }) => (
-            <PromiseDataStyled>
+            <PromiseDataStyled isSmall={smallScreen} key={label}>
               <Logo url={url} />
               <Typography variant="body2" color="neutral.white" component={'p'}>
                 {label}
