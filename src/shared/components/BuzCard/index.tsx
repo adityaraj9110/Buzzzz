@@ -8,18 +8,24 @@ export const BuzCard = ({
   cardDescription,
   iconBackgroundColor,
   cardBasis = '32%',
+  minMaxWidth,
 }: {
   iconUrl: string
   cardTitle: string
   cardDescription: string
   iconBackgroundColor?: string
   cardBasis?: string
+  minMaxWidth?: number
 }) => {
   return (
     <PaperStyled
       elevation={3}
       variant="elevation"
-      sx={{ flexBasis: cardBasis }}
+      sx={{
+        flexBasis: cardBasis,
+        minWidth: minMaxWidth ? `${minMaxWidth}%` : 'unset',
+        maxWidth: minMaxWidth ? `${minMaxWidth}%` : 'unset',
+      }}
     >
       <RoundedIcon
         iconBackgroundColor={iconBackgroundColor}

@@ -29,11 +29,12 @@ export const BuzWorking = () => {
   }
 
   const InfoSection = () => {
-    const { smallScreen } = useScreenSize()
+    const { smallScreen: smallscreen } = useScreenSize()
+
     return (
-      <InfoSectionWrapperStyled smallScreen={smallScreen}>
+      <InfoSectionWrapperStyled smallscreen={smallscreen}>
         {Array.from(Array(4).keys()).map((i) => (
-          <StackStyled key={i} smallScreen>
+          <StackStyled key={i} smallscreen={smallscreen}>
             <WrapperStackStyled>
               <RoundedIcon
                 content={
@@ -52,7 +53,9 @@ export const BuzWorking = () => {
               <img
                 src={publicImages.arrow}
                 alt="arrow"
-                style={!smallScreen ? 'unset' : { transform: 'rotate(90deg)' }}
+                style={{
+                  transform: smallscreen ? 'rotate(90deg)' : 'unset',
+                }}
               />
             )}
           </StackStyled>

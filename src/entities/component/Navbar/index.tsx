@@ -97,7 +97,8 @@ export const Navbar = () => {
     setDrawerOpen(open)
   }
 
-  const { smallScreen } = useScreenSize()
+  const { smallScreen: smallscreen } = useScreenSize()
+  
   const renderSubMenu = (subMenu?: MenuItem[]) =>
     subMenu?.map((subItem) => {
       const isSubMenuSelected = location.hash.includes(
@@ -123,7 +124,7 @@ export const Navbar = () => {
     })
 
   return (
-    <NavbarWrapperStyled smallScreen={smallScreen}>
+    <NavbarWrapperStyled smallScreen={smallscreen}>
       <StartViewWrapperStyled>
         <img src={publicImages.buzLogo} alt="brand-logo" />
         <Typography variant="h6.700" color="neutral.white">
@@ -131,7 +132,7 @@ export const Navbar = () => {
         </Typography>
       </StartViewWrapperStyled>
 
-      {!smallScreen && (
+      {!smallscreen && (
         <MenuItemsWrapperStyled>
           {menuItem.map(({ label, value, subMenu, logo }) => {
             const isSelected =
@@ -220,13 +221,13 @@ export const Navbar = () => {
         </MenuItemsWrapperStyled>
       )}
 
-      {!smallScreen && (
+      {!smallscreen && (
         <div>
           <Button variant="contained">GET STARTED</Button>
         </div>
       )}
 
-      {smallScreen && (
+      {smallscreen && (
         <>
           <IconButton onClick={toggleDrawer(true)}>
             <MenuIcon sx={{ color: 'neutral.white' }} fontSize="large" />

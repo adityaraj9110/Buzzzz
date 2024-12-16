@@ -13,6 +13,7 @@ import {
   TextFieldStyled,
   TopViewWrapperStyled,
 } from './styles.component'
+import { useScreenSize } from 'shared/hooks'
 
 type MenuItem = {
   label: string
@@ -43,8 +44,10 @@ export const Footer = () => {
     )
   }, [location, menuItem])
 
+  const { smallScreen:smallscreen } = useScreenSize()
+
   return (
-    <StackStyled>
+    <StackStyled issmall={smallscreen}>
       <TopViewWrapperStyled>
         <img src={publicImages.buzLogo} alt="logo" />
         <Typography variant="h6.700" color="neutral.white">
@@ -61,7 +64,7 @@ export const Footer = () => {
             Join our community to recieve updates.
           </Typography>
         </Stack>
-        <SubscribeStyled>
+        <SubscribeStyled issmall={smallscreen}>
           <TextFieldStyled
             name="email"
             placeholder="Enter your email address"
@@ -81,7 +84,7 @@ export const Footer = () => {
       <Stack gap={'30px'}>
         {/* navigation links */}
         <NavigationWrapperStyled>
-          <StackWrapperStyled>
+          <StackWrapperStyled issmall={smallscreen}>
             <Stack>
               {mainMenuItems.map(({ label, value }, ind) => {
                 const isSelected = currentMenuItem.value === value

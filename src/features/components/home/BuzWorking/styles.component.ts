@@ -1,25 +1,25 @@
 import { Stack, styled } from '@mui/material'
 
-export const InfoSectionWrapperStyled = styled('div')<{ smallScreen: boolean }>(
+export const InfoSectionWrapperStyled = styled('div')<{ smallscreen: boolean }>(
   () =>
-    ({ smallScreen, theme: { palette } }) => ({
+    ({ smallscreen, theme: { palette } }) => ({
       display: 'flex',
-      flexDirection: smallScreen ? 'column' : 'row',
+      flexDirection: smallscreen ? 'column' : 'row',
       gap: '10px',
       background: palette.blue['100'],
-      padding: !smallScreen ? '1rem' : '1vw 3vw',
+      padding: smallscreen ? '1vw 3vw' : '1rem',
       borderRadius: '10px',
-      width: smallScreen ? '100vw' : '100%',
-      justifyContent: smallScreen ? 'center' : 'space-between',
+      width: smallscreen ? '100vw' : '100%',
+      justifyContent: smallscreen ? 'center' : 'space-between',
     })
 )
 
-export const StackStyled = styled(Stack)<{ smallScreen: boolean }>(
-  ({ smallScreen }) => ({
-    flexDirection: smallScreen ? 'column' : 'row',
+export const StackStyled = styled(Stack)<{ smallscreen: boolean }>(
+  ({ smallscreen }) => ({
+    flexDirection: smallscreen ? 'column' : 'row',
     alignItems: 'center',
-    gap: smallScreen ? '66px' : 'none',
-    marginTop: smallScreen ? '32px' : 'none',
+    gap: smallscreen ? '66px' : 'none',
+    marginTop: smallscreen ? '2rem' : 'none',
   })
 )
 

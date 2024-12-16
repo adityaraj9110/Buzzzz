@@ -1,6 +1,7 @@
 import { Typography, useTheme } from '@mui/material'
 import { BuzInfoSection } from 'entities/component'
 import { BuzCard } from 'shared/components'
+import { useScreenSize } from 'shared/hooks'
 import { CardDataType } from 'shared/model'
 
 const TopInfoSection = ({
@@ -51,15 +52,20 @@ const Cards = ({
   cardBasis?: string
 }) => {
   const { palette } = useTheme()
+  const { smallScreen } = useScreenSize()
+
   return (
     <div
       style={{
         display: 'flex',
         flexWrap: 'wrap',
+        flexDirection: smallScreen ? 'column' : 'row',
         gap: '10px',
         width: '100%',
-        justifyContent: 'space-between',
+        justifyContent: smallScreen ? 'center' : 'space-between',
+        alignItems: 'center',
         rowGap: '20px',
+        marginBottom: smallScreen ? '100px' : 'unset',
       }}
     >
       {data.map(({ desc, iconUrl, title }) => (
@@ -70,6 +76,7 @@ const Cards = ({
           iconUrl={iconUrl}
           iconBackgroundColor={palette.neutral.black}
           cardBasis={cardBasis}
+          minMaxWidth={smallScreen ? 100 : undefined}
         />
       ))}
     </div>

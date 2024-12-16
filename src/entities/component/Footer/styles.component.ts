@@ -1,11 +1,13 @@
 import { Divider, Stack, TextField, styled } from '@mui/material'
 
-export const StackStyled = styled(Stack)(({ theme: { palette } }) => ({
-  backgroundColor: palette.neutral.black,
-  marginTop: '100px ',
-  gap: '50px',
-  padding: '50px 70px 70px 70px',
-}))
+export const StackStyled = styled(Stack)<{ issmall: boolean }>(
+  ({ theme: { palette }, issmall }) => ({
+    backgroundColor: palette.neutral.black,
+    marginTop: '100px ',
+    gap: '50px',
+    padding: issmall ? '2rem' : '50px 70px 70px 70px',
+  })
+)
 
 export const TopViewWrapperStyled = styled('div')({
   display: 'flex',
@@ -13,10 +15,13 @@ export const TopViewWrapperStyled = styled('div')({
   gap: '14px',
 })
 
-export const SubscribeStyled = styled('div')({
-  display: 'flex',
-  gap: '6px',
-})
+export const SubscribeStyled = styled('div')<{ issmall: boolean }>(
+  ({ issmall }) => ({
+    display: 'flex',
+    gap: '6px',
+    flexDirection: issmall ? 'column' : 'row',
+  })
+)
 
 export const TextFieldStyled = styled(TextField)(({ theme: { palette } }) => ({
   border: '130px',
@@ -41,11 +46,14 @@ export const NavigationWrapperStyled = styled('div')({
   justifyContent: 'space-between',
 })
 
-export const StackWrapperStyled = styled('div')({
-  display: 'flex',
-  minWidth: '350px',
-  justifyContent: 'space-between',
-})
+export const StackWrapperStyled = styled('div')<{ issmall: boolean }>(
+  ({ issmall }) => ({
+    display: 'flex',
+    minWidth: '350px',
+    justifyContent: 'space-between',
+    flexDirection: issmall ? 'column' : 'row',
+  })
+)
 
 export const DividerStyled = styled(Divider)(({ theme: { palette } }) => ({
   backgroundColor: palette.neutral.white,

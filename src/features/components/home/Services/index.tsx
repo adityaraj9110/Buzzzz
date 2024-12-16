@@ -1,6 +1,7 @@
 import { Stack, Typography } from '@mui/material'
 import { BuzInfoSection } from 'entities/component'
 import { publicImages } from 'shared/config'
+import { useScreenSize } from 'shared/hooks'
 
 const TopInfo = () => {
   return (
@@ -17,6 +18,7 @@ const TopInfo = () => {
 }
 
 const ServicesShowcase = () => {
+  const { smallScreen } = useScreenSize()
   const servicesImg = [
     publicImages.cabBooking,
     publicImages.autoBooking,
@@ -24,7 +26,7 @@ const ServicesShowcase = () => {
   ]
   return (
     <Stack
-      direction={'row'}
+      direction={smallScreen ? 'column' : 'row'}
       gap={'30px'}
       width={'100%'}
       justifyContent={'space-between'}

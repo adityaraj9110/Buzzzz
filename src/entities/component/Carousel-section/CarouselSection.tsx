@@ -13,6 +13,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import { publicImages } from 'shared/config'
 import ReactStars from 'react-stars'
+import { useScreenSize } from 'shared/hooks'
 
 const testimonials = [
   {
@@ -99,15 +100,17 @@ const Arrow = ({
   direction: string
   onClick?: () => void
 }) => {
+  const { smallScreen: smallscreen } = useScreenSize()
+
   return (
     <StyledArrow
       onClick={onClick}
       sx={{
         position: 'absolute',
-        bottom: '0%',
+        bottom: smallscreen ? '12px' : '0px',
         transform: 'translateY(-50%)',
-        left: direction === 'prev' ? '45%' : 'auto',
-        right: direction === 'next' ? '45%' : 'auto',
+        left: direction === 'prev' ? (smallscreen ? '38%' : '46%') : 'auto',
+        right: direction === 'next' ? (smallscreen ? '38%' : '46%') : 'auto',
         zIndex: 1,
       }}
     >
@@ -148,6 +151,7 @@ export const Carousel = () => {
     <Box
       sx={{
         width: '100%',
+        height: '300px',
         margin: '0 auto',
         textAlign: 'center',
         overflow: 'hidden',
@@ -163,7 +167,7 @@ export const Carousel = () => {
                 sx={{
                   textAlign: 'left',
                   p: 1,
-                  minWidth: '420px',
+                  minWidth: '100%',
                   minHeight: '285px',
                   maxWidth: '420px',
                   maxHeight: '285px',

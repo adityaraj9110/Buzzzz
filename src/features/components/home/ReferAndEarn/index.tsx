@@ -5,6 +5,7 @@ import { referralSteps } from 'features/model'
 import { RoundedIcon } from 'shared/components'
 import { publicImages } from 'shared/config'
 import { BottomWrapperStyled, ContainerStyled } from './styles.component'
+import { useScreenSize } from 'shared/hooks'
 
 const TopView = () => {
   return (
@@ -16,7 +17,7 @@ const TopView = () => {
         </Typography>
       </Typography>
 
-      <Typography variant="body2">
+      <Typography variant="body2" textAlign={'center'}>
         Invite your friends to join BuzzCabs and earn rewards for every
         successful referral!
       </Typography>
@@ -26,9 +27,10 @@ const TopView = () => {
 
 const BottomSection = () => {
   const theme = useTheme()
+  const { smallScreen } = useScreenSize()
 
   return (
-    <BottomWrapperStyled>
+    <BottomWrapperStyled issmall={smallScreen}>
       <Stack gap={'30px'} maxWidth={'530px'} paddingTop={'2rem'}>
         <Typography variant="h4.700">How it Works</Typography>
 

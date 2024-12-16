@@ -6,8 +6,8 @@ export const NavbarWrapperStyled = styled('div')<{ smallScreen: boolean }>(
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: !smallScreen ? '1.25rem 4.375rem':'0',
-    paddingLeft:smallScreen?'32px':'0',
+    padding: smallScreen ? '1rem' : '1.25rem 4.375rem',
+    paddingLeft: smallScreen ? '2rem' : '4.375rem',
     width: '100%',
   })
 )
