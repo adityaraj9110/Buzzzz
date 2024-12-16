@@ -4,11 +4,18 @@ import AppleIcon from '@mui/icons-material/Apple'
 import ShopTwoIcon from '@mui/icons-material/ShopTwo'
 import { publicImages } from 'shared/config'
 import { ButtonStyled, WrapperStyled } from './styles.component'
+import { useScreenSize } from 'shared/hooks'
 
 export const DownloadSection = () => {
+  const { smallScreen:smallscreen } = useScreenSize()
+
   return (
-    <WrapperStyled>
-      <Stack gap={'30px'} maxWidth={'527px'}>
+    <WrapperStyled issmall={smallscreen}>
+      <Stack
+        gap={'30px'}
+        maxWidth={'527px'}
+        minWidth={smallscreen ? '25%' : 'unset'}
+      >
         <Stack gap={'5px'}>
           <Typography variant="h5.700" color="neutral.white">
             Download the{' '}
@@ -19,7 +26,13 @@ export const DownloadSection = () => {
           </Typography>
         </Stack>
 
-        <div style={{ display: 'flex', gap: '30px' }}>
+        <div
+          style={{
+            display: 'flex',
+            gap: '30px',
+            flexDirection: smallscreen ? 'column' : 'row',
+          }}
+        >
           <ButtonStyled
             variant="contained"
             color="secondary"
@@ -47,7 +60,16 @@ export const DownloadSection = () => {
         </div>
       </Stack>
 
-      <img src={publicImages.buzzcabMobileImg} alt="" />
+      <img
+        src={publicImages.buzzcabMobileImg}
+        alt=""
+        style={{
+          minWidth: smallscreen ? '350px' : 'unset',
+          minHeight: smallscreen ? '350px' : 'unset',
+          maxWidth: smallscreen ? '350px' : 'unset',
+          maxHeight: smallscreen ? '350px' : 'unset',
+        }}
+      />
     </WrapperStyled>
   )
 }

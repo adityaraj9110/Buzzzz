@@ -47,7 +47,7 @@ export const useScreenSize = () => {
       smallScreen: windowSize.width <= breakPoints.md,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [windowSize.width]
+    [windowSize.width, windowSize]
   )
 
   return { screen, smallScreen }
