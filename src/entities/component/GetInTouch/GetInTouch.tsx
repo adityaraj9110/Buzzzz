@@ -12,6 +12,7 @@ import {
   RightViewWrapperStyled,
   StackStyled,
 } from './styles.component'
+import { useScreenSize } from 'shared/hooks'
 
 export const GetInTouch = () => {
   const TopView = () => {
@@ -32,9 +33,11 @@ export const GetInTouch = () => {
   }
 
   const BottomView = () => {
+    const { smallScreen:smallscreen } = useScreenSize()
+
     return (
-      <PaperStyled>
-        <StackStyled component={'form'}>
+      <PaperStyled issmall={smallscreen}>
+        <StackStyled component={'form'} issmall={smallscreen}>
           <TextField placeholder="Full Name" />
           <FieldsWrapperStyled>
             <TextField

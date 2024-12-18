@@ -3,6 +3,7 @@ import { Stack, Typography } from '@mui/material'
 import { BuzInfoSection } from 'entities/component'
 import { publicImages } from 'shared/config'
 import { ImagesWrapperStyled } from './styles.component'
+import { useScreenSize } from 'shared/hooks'
 
 const TopView = () => {
   return (
@@ -27,6 +28,8 @@ const BottomView = () => {
     publicImages.aboutImg4,
     publicImages.aboutImg5,
   ]
+  const { smallScreen } = useScreenSize()
+
   return (
     <Stack gap={'50px'}>
       <Typography variant="body3" textAlign={'center'}>
@@ -36,9 +39,14 @@ const BottomView = () => {
         We strive to provide a ride experience that is convenient, reliable, and
         affordable.
       </Typography>
-      <ImagesWrapperStyled>
+      <ImagesWrapperStyled issmall={smallScreen}>
         {images.map((url) => (
-          <img src={url} key={url} alt="img" />
+          <img
+            src={url}
+            key={url}
+            alt="img"
+            width={smallScreen ? '100%' : 'unset'}
+          />
         ))}
       </ImagesWrapperStyled>
     </Stack>

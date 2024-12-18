@@ -65,7 +65,6 @@ const Cards = ({
         justifyContent: smallScreen ? 'center' : 'space-between',
         alignItems: 'center',
         rowGap: '20px',
-        marginBottom: smallScreen ? '100px' : 'unset',
       }}
     >
       {data.map(({ desc, iconUrl, title }) => (

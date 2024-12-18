@@ -1,15 +1,18 @@
 import { Box, Button, Paper, Stack, StackProps, styled } from '@mui/material'
 
-export const PaperStyled = styled(Paper)({
-  display: 'flex',
-  width: '100%',
-  padding: '2.3rem',
-  gap: '40px',
-})
+export const PaperStyled = styled(Paper)<{ issmall: boolean }>(
+  ({ issmall }) => ({
+    display: 'flex',
+    width: '100%',
+    padding: '2.3rem',
+    gap: '40px',
+    flexDirection: issmall ? 'column-reverse' : 'row',
+  })
+)
 
-export const StackStyled = styled(Stack)<StackProps>(
-  ({ theme: { palette } }) => ({
-    minWidth: '690px',
+export const StackStyled = styled(Stack)<StackProps & { issmall: boolean }>(
+  ({ theme: { palette }, issmall }) => ({
+    minWidth: issmall ? '100%' : '690px',
     padding: '10px',
     gap: '14px',
     background: palette.neutral.black + '33',

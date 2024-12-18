@@ -28,9 +28,8 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^15.1.0",
     "react-router-dom": "^6.27.0",
-    "react-slick": "^0.30.2",
     "react-stars": "^2.2.5",
-    "slick-carousel": "^1.8.1",
+    "swiper": "^11.1.15",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^5.0.1"
   },

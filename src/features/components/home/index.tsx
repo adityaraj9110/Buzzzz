@@ -17,7 +17,7 @@ export const Home = () => {
   return (
     <div
       style={{
-        gap: !smallScreen ? '100px' : '0',
+        gap: '100px',
         display: 'flex',
         flexDirection: 'column',
         overflowX: 'hidden',
