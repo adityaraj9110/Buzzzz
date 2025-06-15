@@ -1,4 +1,3 @@
-import React from 'react'
 import { BuzInfoSection } from '../BuzzInfo-Section/BuzInfoSection'
 import { Stack, TextField, Typography } from '@mui/material'
 import { RoundedIcon } from 'shared/components'
@@ -33,7 +32,7 @@ export const GetInTouch = () => {
   }
 
   const BottomView = () => {
-    const { smallScreen:smallscreen } = useScreenSize()
+    const { smallScreen: smallscreen } = useScreenSize()
 
     return (
       <PaperStyled issmall={smallscreen}>

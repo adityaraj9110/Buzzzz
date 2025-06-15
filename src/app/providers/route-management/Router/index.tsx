@@ -5,6 +5,7 @@ import {
   HomeLayout,
   ServiceLayout,
 } from 'app/layout'
+import { MainLayout } from 'app/layout/MainLayout/MainLayout'
 import { appPaths } from 'entities/config'
 import { AboutUsPage } from 'pages/components/about-us/AboutUs'
 import { CabServicesPage } from 'pages/components/cab-services/CabServices'
@@ -24,32 +25,23 @@ import {
 const Router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Outlet />}>
-      <Route element={<HomeLayout />}>
+      <Route element={<MainLayout />}>
         <Route path={appPaths['/']} element={<HomePage />} />
-      </Route>
 
-      <Route element={<AboutUsLayout />}>
         <Route path={appPaths.about} element={<AboutUsPage />} />
-      </Route>
 
-      <Route element={<HelpSupportLayout />}>
         <Route path={appPaths.helpAndSupport} element={<HelpSupportPage />} />
-      </Route>
 
-      <Route element={<CareerLayout />}>
         <Route path={appPaths.career} element={<CareerPage />} />
-      </Route>
 
-      <Route element={<ServiceLayout />}>
         <Route path={appPaths.services} element={<ServicesPage />} />
         <Route path={appPaths.cabServices} element={<CabServicesPage />} />
         <Route
           path={appPaths.ticketBookingServices}
           element={<TicketBookingServicesPage />}
         />
+        <Route path="*" element={<h1>Page not found</h1>} />
       </Route>
-
-      <Route path="*" element={<h1>Page not found</h1>} />
     </Route>
   )
 )

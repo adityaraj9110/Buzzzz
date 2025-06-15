@@ -16,7 +16,7 @@ import {
   Stack,
 } from '@mui/material'
 import { AppPathsName, appPaths } from 'entities/config'
-import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { publicImages } from 'shared/config'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import {
@@ -98,7 +98,7 @@ export const Navbar = () => {
   }
 
   const { smallScreen: smallscreen } = useScreenSize()
-  
+
   const renderSubMenu = (subMenu?: MenuItem[]) =>
     subMenu?.map((subItem) => {
       const isSubMenuSelected = location.hash.includes(
@@ -125,7 +125,7 @@ export const Navbar = () => {
 
   return (
     <NavbarWrapperStyled smallScreen={smallscreen}>
-      <StartViewWrapperStyled>
+      <StartViewWrapperStyled as={Link} to="/">
         <img src={publicImages.buzLogo} alt="brand-logo" />
         <Typography variant="h6.700" color="neutral.white">
           BuzzCabs
@@ -266,6 +266,7 @@ export const Navbar = () => {
                           <ListItem
                             component={NavLink}
                             to={appPaths[value]}
+                            onClick={() => setDrawerOpen(false)}
                             style={{ textDecoration: 'none' }}
                             sx={{
                               ['&:hover']: {

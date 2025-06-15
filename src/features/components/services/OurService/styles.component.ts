@@ -1,12 +1,17 @@
 import { Card, styled } from '@mui/material'
 import { ColorPaletteOptions } from 'app/providers/theme-management/theme/types'
 
-export const BottomViewWrapperStyled = styled('div')({
-  display: 'flex',
-  gap: '30px',
-  width: '100%',
-  flexWrap: 'wrap',
-})
+export const BottomViewWrapperStyled = styled('div')(
+  ({ theme: { breakpoints } }) => ({
+    display: 'flex',
+    gap: '30px',
+    width: '100%',
+    flexWrap: 'wrap',
+    [breakpoints.down('md')]: {
+      flexDirection: 'column',
+    },
+  })
+)
 
 export const CardStyled = styled(Card)<{
   color: keyof ColorPaletteOptions

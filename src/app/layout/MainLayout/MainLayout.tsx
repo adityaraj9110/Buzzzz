@@ -1,11 +1,11 @@
-import React, { PropsWithChildren } from 'react'
 import { Footer, Navbar } from 'entities/component'
+import { Outlet } from 'react-router-dom'
 
-export const MainLayout = ({ children }: PropsWithChildren) => {
+export const MainLayout = () => {
   return (
     <>
       <Navbar />
-      {children}
+      <Outlet />
       <Footer />
     </>
   )

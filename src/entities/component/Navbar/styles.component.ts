@@ -1,4 +1,5 @@
-import { styled } from '@mui/material'
+import { Box, styled, type BoxProps } from '@mui/material'
+import type { LinkProps } from 'react-router-dom'
 
 export const NavbarWrapperStyled = styled('div')<{ smallScreen: boolean }>(
   ({ theme: { palette }, smallScreen }) => ({
@@ -12,16 +13,17 @@ export const NavbarWrapperStyled = styled('div')<{ smallScreen: boolean }>(
   })
 )
 
-export const StartViewWrapperStyled = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  gap: '14px',
-})
-
 export const MenuItemsWrapperStyled = styled('div')({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
   gap: '50px',
+})
+
+export const StartViewWrapperStyled = styled(Box)<LinkProps & BoxProps>({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: '14px',
+  textDecoration: 'none',
 })

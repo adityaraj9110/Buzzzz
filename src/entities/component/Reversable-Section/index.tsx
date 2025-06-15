@@ -1,6 +1,5 @@
-import React, { ReactNode } from 'react'
-import { WrapperStyled } from './styles.component'
-import { Divider } from '@mui/material'
+import { ReactNode } from 'react'
+import { TextSectionStyled, WrapperStyled } from './styles.component'
 
 export const ReversableSection = ({
   imgUrl,
@@ -13,10 +12,8 @@ export const ReversableSection = ({
 }) => {
   return (
     <WrapperStyled reverse={reverse}>
-      <img src={imgUrl} alt="wait for cab" />
-      <div style={{ minWidth: '830px', alignSelf: 'center' }}>
-        {textSection}
-      </div>
+      <img src={imgUrl} alt="wait for cab" style={{ width: '100%' }} />
+      <TextSectionStyled>{textSection}</TextSectionStyled>
     </WrapperStyled>
   )
 }
