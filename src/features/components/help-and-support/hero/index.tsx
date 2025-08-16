@@ -12,7 +12,7 @@ export const HeroSection = () => {
             color="neutral.white"
             textAlign={'center'}
           >
-            Welcome to BuzzCabs Support Hub
+            Welcome to onezup Support Hub
           </Typography>
 
           <Typography

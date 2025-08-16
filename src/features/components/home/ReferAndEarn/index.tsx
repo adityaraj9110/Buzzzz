@@ -18,8 +18,8 @@ const TopView = () => {
       </Typography>
 
       <Typography variant="body2" textAlign={'center'}>
-        Invite your friends to join BuzzCabs and earn rewards for every
-        successful referral!
+        Invite your friends to join onezup and earn rewards for every successful
+        referral!
       </Typography>
     </>
   )

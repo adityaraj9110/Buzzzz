@@ -2,12 +2,12 @@ export const faqData = [
   {
     question: 'How do I book an auto rickshaw?',
     answer:
-      'You can book an auto rickshaw through our BuzzCabs app  by selecting the auto option, entering your destination, and confirming the ride.',
+      'You can book an auto rickshaw through our onezup app  by selecting the auto option, entering your destination, and confirming the ride.',
   },
   {
     question: 'Are the auto drivers reliable?',
     answer:
-      'Yes, all BuzzCabs auto drivers are experienced, trained, and vetted for a safe and secure journey.',
+      'Yes, all onezup auto drivers are experienced, trained, and vetted for a safe and secure journey.',
   },
   {
     question: 'What if I need to cancel my ride?',

@@ -12,19 +12,19 @@ import {
 import { useScreenSize } from 'shared/hooks'
 
 export const HeroSection = () => {
-  const { smallScreen:smallscreen } = useScreenSize()
+  const { smallScreen: smallscreen } = useScreenSize()
   return (
     <HeroSectionStyled issmall={smallscreen}>
       <TopViewStyled issmall={smallscreen}>
         <div>
           <Typography variant="h1.700" color="primary.main">
-            BuzzCabs
+            onezup
           </Typography>
           <Typography variant="h1.700" color="neutral.white">
             - The Smart Way to Travel!
           </Typography>
           <Typography variant="body2" color="neutral.white" component={'p'}>
-            Instant cabs at your fingertips. Wherever you are, BuzzCabs will get
+            Instant cabs at your fingertips. Wherever you are, onezup will get
             you there safe, fast, and hassle-free.
           </Typography>
         </div>

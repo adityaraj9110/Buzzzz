@@ -29,7 +29,8 @@ export const Home = () => {
         <Services />
         <WhyChooseUs data={whyChooseUseCardData} />
       </HomeWrapperStyled>
-      <DownloadSection />
+      {/* FIXME: Will be shown later when there will be images */}
+      {/* <DownloadSection /> */}
       <HomeWrapperStyled>
         <OurPeopleSection />
         <ReferAndEarn />

@@ -33,7 +33,7 @@ const BottomView = () => {
   return (
     <Stack gap={'50px'}>
       <Typography variant="body3" textAlign={'center'}>
-        At BuzzCabs, we are passionate about transforming urban transportation.
+        At onezup, we are passionate about transforming urban transportation.
         Our platform offers a user-centric, hassle-free way to book bikes, cars,
         and autos for any journey—whether it's a quick commute or a long trip.
         We strive to provide a ride experience that is convenient, reliable, and

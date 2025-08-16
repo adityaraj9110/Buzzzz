@@ -4,7 +4,7 @@ import { CardDataType } from 'shared/model'
 export const whyChooseUseCardData: CardDataType[] = [
   {
     title: 'Instant Cab Booking',
-    desc: 'No more waiting. With BuzzCabs, book your ride in seconds and get a cab right when you need it.',
+    desc: 'No more waiting. With onezup, book your ride in seconds and get a cab right when you need it.',
     iconUrl: publicImages.clock,
   },
   {
@@ -24,7 +24,7 @@ export const whyChooseUseCardData: CardDataType[] = [
   },
   {
     title: '24/7 Availability',
-    desc: 'BuzzCabs is ready when you are. Whether it’s day or night, we ensure you never miss a ride.',
+    desc: 'onezup is ready when you are. Whether it’s day or night, we ensure you never miss a ride.',
     iconUrl: publicImages['24HrsImage'],
   },
   {

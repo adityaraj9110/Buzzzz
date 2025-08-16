@@ -22,7 +22,7 @@ export const OurService = () => {
         </Typography>
 
         <Typography variant="body3">
-          At BuzzCabs, we provide a variety of vehicles to ensure you find the
+          At onezup, we provide a variety of vehicles to ensure you find the
           perfect ride for any journey.
         </Typography>
       </Stack>

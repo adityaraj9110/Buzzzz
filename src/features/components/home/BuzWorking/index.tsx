@@ -16,7 +16,7 @@ export const BuzWorking = () => {
         <Typography variant="h5.700">
           How{' '}
           <Typography variant="h5.700" color="primary.main">
-            BuzzCabs{' '}
+            onezup{' '}
           </Typography>
           Works?
         </Typography>
@@ -45,7 +45,7 @@ export const BuzWorking = () => {
               />
               <Typography variant="body1.600">Download the App</Typography>
               <Typography variant="body1" textAlign={'center'}>
-                Get the BuzzCabs app on your phone—available for both iOS and
+                Get the onezup app on your phone—available for both iOS and
                 Android.
               </Typography>
             </WrapperStackStyled>

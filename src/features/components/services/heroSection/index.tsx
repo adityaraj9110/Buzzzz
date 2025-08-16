@@ -36,7 +36,7 @@ export const HeroSection = () => {
           Explore our wide range of transport options, from bikes to cars,
           tailored to meet your every travel need with ease and affordability.
           Whether you're rushing to work, commuting in the city, or planning a
-          weekend getaway, BuzzCabs is here to offer reliable, safe, and
+          weekend getaway, onezup is here to offer reliable, safe, and
           convenient rides for you.
         </Typography>
       </WrapperStyled>

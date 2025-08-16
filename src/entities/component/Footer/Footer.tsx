@@ -44,14 +44,14 @@ export const Footer = () => {
     )
   }, [location, menuItem])
 
-  const { smallScreen:smallscreen } = useScreenSize()
+  const { smallScreen: smallscreen } = useScreenSize()
 
   return (
     <StackStyled issmall={smallscreen}>
       <TopViewWrapperStyled>
         <img src={publicImages.buzLogo} alt="logo" />
         <Typography variant="h6.700" color="neutral.white">
-          BuzzCabs
+          onezup
         </Typography>
       </TopViewWrapperStyled>
 
@@ -132,7 +132,7 @@ export const Footer = () => {
         {/* divider */}
         <DividerStyled />
         <Typography variant="caption1" color="neutral.white">
-          &copy; 2024 BuzzCabs. All Rights Reserved.
+          &copy; 2024 onezup. All Rights Reserved.
         </Typography>
       </Stack>
     </StackStyled>

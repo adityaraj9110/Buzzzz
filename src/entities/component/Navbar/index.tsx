@@ -128,7 +128,7 @@ export const Navbar = () => {
       <StartViewWrapperStyled as={Link} to="/">
         <img src={publicImages.buzLogo} alt="brand-logo" />
         <Typography variant="h6.700" color="neutral.white">
-          BuzzCabs
+          onezup
         </Typography>
       </StartViewWrapperStyled>
 
@@ -246,7 +246,7 @@ export const Navbar = () => {
                   alignItems="center"
                 >
                   <Typography variant="h6" color="primary">
-                    BuzzCabs
+                    onezup
                   </Typography>
                   <IconButton onClick={toggleDrawer(false)}>
                     <CloseIcon />

@@ -71,9 +71,9 @@ export const GetInTouch = () => {
             <Stack spacing={'10px'}>
               <Typography variant="body1.600" color="secondary.main">
                 Email Us:{' '}
-                <Link to="mailto:contact@buzzcabs.com" color="secondary.main">
+                <Link to="mailto:contact@onezup.com" color="secondary.main">
                   <Typography variant="body1.600" color="secondary.main">
-                    contact@buzzcabs.com
+                    contact@onezup.com
                   </Typography>
                 </Link>
               </Typography>

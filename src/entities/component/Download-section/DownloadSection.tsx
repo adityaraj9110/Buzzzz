@@ -7,7 +7,7 @@ import { ButtonStyled, WrapperStyled } from './styles.component'
 import { useScreenSize } from 'shared/hooks'
 
 export const DownloadSection = () => {
-  const { smallScreen:smallscreen } = useScreenSize()
+  const { smallScreen: smallscreen } = useScreenSize()
 
   return (
     <WrapperStyled issmall={smallscreen}>
@@ -20,7 +20,7 @@ export const DownloadSection = () => {
           <Typography variant="h5.700" color="neutral.white">
             Download the{' '}
             <Typography variant="h5.700" color="primary.main">
-              BuzzCabs{' '}
+              onezup{' '}
             </Typography>
             App
           </Typography>

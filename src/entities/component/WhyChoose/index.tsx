@@ -32,7 +32,7 @@ const TopInfoSection = ({
       <Typography variant="h5.700">
         Why Choose{' '}
         <Typography variant="h5.700" color="primary.main">
-          BuzzCabs{' '}
+          onezup{' '}
         </Typography>
         ?
       </Typography>
